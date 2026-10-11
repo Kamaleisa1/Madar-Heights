@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Madar Heights">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0B4F7A"/>
+      <stop offset="1" stop-color="#1FB6D5"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2C14E"/>
+      <stop offset="1" stop-color="#E08E2B"/>
+    </linearGradient>
+  </defs>
+  <!-- towers (heights) -->
+  <path d="M18 50V30l8-5v25z" fill="url(#g1)" opacity=".75"/>
+  <path d="M27 50V18l9-7v39z" fill="url(#g1)"/>
+  <path d="M37 50V26l9 5v19z" fill="url(#g1)" opacity=".85"/>
+  <!-- water drop -->
+  <path d="M31.5 31c2.6 3 4 5.2 4 7a4 4 0 0 1-8 0c0-1.8 1.4-4 4-7z" fill="#fff"/>
+  <!-- orbit (madar) -->
+  <ellipse cx="32" cy="38" rx="28" ry="10" fill="none" stroke="url(#g2)" stroke-width="3" transform="rotate(-14 32 38)"/>
+  <circle cx="57" cy="29" r="3.6" fill="url(#g2)"/>
+</svg>
