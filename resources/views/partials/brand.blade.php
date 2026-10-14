@@ -1,7 +1,7 @@
 <a href="{{ route('home') }}" class="brand" aria-label="{{ config('site.name') }} - الرئيسية">
-    <img src="{{ asset('assets/img/logo-mark.svg') }}" alt="" width="46" height="46" class="brand__mark">
+    @include('partials.logo', ['class' => 'brand__logo', 'alt' => config('site.name_en'), 'eager' => true])
     <span class="brand__text">
         <strong>{{ config('site.name') }}</strong>
-        <small>MADAR HEIGHTS</small>
+        <small>{{ config('site.tagline') }}</small>
     </span>
 </a>

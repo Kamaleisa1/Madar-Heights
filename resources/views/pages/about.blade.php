@@ -9,7 +9,7 @@
     <div class="container about__grid">
         <div class="about__visual" data-reveal="right">
             <div class="about__card about__card--main">
-                <img src="{{ asset('assets/img/logo-mark.svg') }}" alt="" width="110" height="110">
+                <img src="{{ asset('assets/img/logo-dark.webp') }}" alt="{{ config('site.name_en') }}" width="640" height="509" class="about__logo" loading="lazy">
                 <strong>{{ config('site.name') }}</strong>
                 <span>{{ config('site.tagline') }}</span>
             </div>

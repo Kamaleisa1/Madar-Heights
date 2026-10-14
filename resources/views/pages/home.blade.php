@@ -45,7 +45,7 @@
                 <div class="orbit__ring orbit__ring--2"><span class="orbit__sat"><x-icon name="ac" :size="22"/></span></div>
                 <div class="orbit__ring orbit__ring--3"><span class="orbit__sat"><x-icon name="bug" :size="22"/></span></div>
                 <div class="orbit__core">
-                    <img src="{{ asset('assets/img/logo-mark.svg') }}" alt="{{ config('site.name') }}" width="150" height="150">
+                    @include('partials.logo', ['alt' => config('site.name'), 'eager' => true])
                 </div>
             </div>
             <div class="float-card float-card--1">
