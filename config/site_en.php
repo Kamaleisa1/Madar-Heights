@@ -52,16 +52,10 @@ return [
 
     'services' => [
         'upholstery-cleaning' => [
-            'title' => 'Upholstery Dry Cleaning',
-            'short' => 'Our core service: upholstery dry cleaning with very little water — it dries fast and keeps the fabric\'s colour and feel, with sanitizing and perfuming.',
-            'body' => 'Dry cleaning means cleaning upholstery with specialised products and machines using very little water, so the fabric dries fast and keeps its colour and feel without shrinking or damage. It suits delicate fabrics and furniture you need to use the same day. After cleaning we sanitize the upholstery against bacteria and dust mites and finish with premium fragrance. This is our core service and what we are known for.',
-            'features' => ['Dry cleaning that protects fabric and colour', 'Suitable for delicate fabrics', 'Fast drying, usable the same day', 'Removes stains and dust', 'Sanitizing against bacteria and dust mites', 'Perfuming after cleaning'],
-        ],
-        'deep-upholstery-cleaning' => [
-            'title' => 'Deep Upholstery Cleaning',
-            'short' => 'Deep washing that reaches deep into the fibres to remove tough stains, built-up dust and odours, with sanitizing and perfuming.',
-            'body' => 'Deep cleaning is for upholstery that has collected dust, tough stains and odours over time. We use injection, extraction and steam machines that reach deep into the fibres, pulling dirt out from inside rather than just the surface, then sanitize the upholstery against bacteria and dust mites and perfume it so it looks like new.',
-            'features' => ['Reaches deep into the fibres', 'Removes tough and old stains', 'Extracts built-up dust', 'Odour removal', 'Sanitizing against bacteria and dust mites', 'Perfuming after washing'],
+            'title' => 'Upholstery Dry & Deep Cleaning',
+            'short' => 'Our core service: upholstery dry cleaning with very little water, plus deep washing that reaches deep into the fibres to remove tough stains, dust and odours — with sanitizing and perfuming.',
+            'body' => 'Dry cleaning means cleaning upholstery with specialised products and machines using very little water, so the fabric dries fast and keeps its colour and feel without shrinking or damage — ideal for delicate fabrics. Deep washing is for upholstery that has collected dust, tough stains and odours: we use injection, extraction and steam machines that reach deep into the fibres and pull dirt out from inside, not just the surface. We choose the right method for each piece, then sanitize against bacteria and dust mites and perfume it so it looks like new. This is our core service and what we are known for.',
+            'features' => ['Dry cleaning that protects fabric and colour', 'Deep washing that reaches deep into the fibres', 'Removes tough, old stains and odours', 'Fast drying', 'Sanitizing against bacteria and dust mites', 'Perfuming after washing'],
         ],
         'carpet-curtain-cleaning' => [
             'title' => 'Carpet, Rug & Curtain Cleaning',

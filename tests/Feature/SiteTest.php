@@ -71,7 +71,7 @@ class SiteTest extends TestCase
             $this->get($url)->assertOk()->assertSee('lang="en"', false)->assertSee('dir="ltr"', false);
         }
 
-        $this->get('/en/services/upholstery-cleaning')->assertOk()->assertSee('Upholstery Dry Cleaning');
+        $this->get('/en/services/upholstery-cleaning')->assertOk()->assertSee('Upholstery Dry &amp; Deep Cleaning', false);
         $this->get('/en/areas/khobar')->assertOk()->assertSee('Cleaning company in Khobar');
         $this->get('/en/blog/why-ac-cleaning')->assertOk()->assertSee('Why should you clean your AC?');
     }

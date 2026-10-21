@@ -50,7 +50,7 @@
             <h1 class="hero__title" data-reveal data-delay="100">
                 {{ config('site.name') }}
                 <span class="hero__rotator">
-                    @php($words = is_en() ? ['Upholstery dry cleaning', 'Deep upholstery cleaning', 'Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'] : ['الغسيل الجاف للمفروشات', 'الغسيل العميق للمفروشات', 'غسيل الكنب والمجالس', 'تنظيف السجاد والستائر', 'غسيل المكيفات', 'تنظيف الشقق والفلل', 'مكافحة الحشرات'])
+                    @php($words = is_en() ? ['Upholstery dry & deep cleaning', 'Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'] : ['غسيل جاف وعميق للمفروشات', 'غسيل الكنب والمجالس', 'تنظيف السجاد والستائر', 'غسيل المكيفات', 'تنظيف الشقق والفلل', 'مكافحة الحشرات'])
                     <span class="typed grad" data-words='@json($words, JSON_UNESCAPED_UNICODE)'>{{ $words[0] }}</span><span class="caret"></span>
                 </span>
             </h1>
@@ -83,7 +83,7 @@
             </div>
             <div class="float-card float-card--1">
                 <span class="float-card__ico"><x-icon name="sofa" :size="22"/></span>
-                <span><strong>{{ __('غسيل جاف للمفروشات') }}</strong><small>{{ __('غسيل عميق وتعقيم وتعطير') }}</small></span>
+                <span><strong>{{ __('غسيل جاف وعميق للمفروشات') }}</strong><small>{{ __('غسيل عميق وتعقيم وتعطير') }}</small></span>
             </div>
             <div class="float-card float-card--2">
                 <span class="float-card__ico"><x-icon name="shield" :size="22"/></span>
