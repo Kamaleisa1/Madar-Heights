@@ -877,3 +877,12 @@ section[id] { scroll-margin-top: 140px; }
     .topbar__info > .topbar__sep ~ .topbar__sep { display: none; }
     .topbar__inner { min-height: 40px; }
 }
+
+/* About card with the cleaning photo (logo is part of the image) */
+.about__card--photo {
+    background: linear-gradient(180deg, rgba(4, 16, 46, 0) 35%, rgba(4, 16, 46, .88) 100%), var(--photo) center / cover no-repeat;
+    min-height: 420px; color: #fff;
+}
+.about__card--photo::before { display: none; }
+.about__card--photo strong { text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+@media (max-width: 991px) { .about__card--photo { min-height: 320px; } }

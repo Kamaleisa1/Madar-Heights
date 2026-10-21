@@ -21,8 +21,7 @@
             <a href="{{ lroute('about') }}" class="btn btn--primary">{{ __('اعرف أكثر عنا') }}</a>
         </div>
         <div class="about__visual" data-reveal="left">
-            <div class="about__card about__card--main">
-                <x-icon name="sparkle" :size="56"/>
+            <div class="about__card about__card--main about__card--photo" style="--photo: url('{{ asset('assets/img/about-photo.jpg') }}')">
                 <strong>{{ __('نظافة بمعايير عالية') }}</strong>
                 <span>{{ __('منذ سنوات ونحن نخدم بيوت وشركات المنطقة الشرقية') }}</span>
             </div>
