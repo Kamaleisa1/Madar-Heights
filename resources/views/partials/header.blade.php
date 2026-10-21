@@ -5,7 +5,7 @@
             <span class="topbar__sep"></span>
             <span><x-icon name="clock" :size="15"/> {{ config('site.working_hours') }}</span>
             <span class="topbar__sep hide-sm"></span>
-            <span class="hide-sm"><x-icon name="map" :size="15"/> الدمام · القطيف · سيهات · الأحساء · الجبيل</span>
+            <span class="hide-sm"><x-icon name="map" :size="15"/> {{ implode(' · ', array_column(config('site.cities'), 'name')) }}</span>
         </div>
         @include('partials.social', ['class' => 'social--sm'])
     </div>
@@ -24,7 +24,7 @@
                     <div class="drop drop--grid">
                         @foreach (config('site.services') as $slug => $s)
                             <a href="{{ route('service', $slug) }}"><x-icon :name="$s['icon']" :size="18"/> {{ $s['title'] }}
-                                @if (in_array($slug, config('site.new_services')))<em class="badge">جديد</em>@endif
+                                @if (! empty($s['featured']))<em class="badge">الأساسية</em>@endif
                             </a>
                         @endforeach
                     </div>

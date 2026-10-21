@@ -13,7 +13,7 @@
                 <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
                 <x-icon :name="$service['icon']" :size="110"/>
             </div>
-            <h2 data-reveal>{{ $service['title'] }} في الدمام والقطيف وسيهات والأحساء والجبيل</h2>
+            <h2 data-reveal>{{ $service['title'] }} في {{ implode(' و', array_column(config('site.cities'), 'name')) }}</h2>
             <p data-reveal>{{ $service['body'] }}</p>
 
             <h3 data-reveal>ماذا تشمل الخدمة؟</h3>
@@ -50,6 +50,10 @@
         </aside>
     </div>
 </section>
+
+@if (config('site.offer.service') === $slug)
+    @include('partials.offer')
+@endif
 
 @include('partials.booking', ['selectedService' => $slug])
 @endsection

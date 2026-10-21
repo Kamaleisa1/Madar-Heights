@@ -8,21 +8,21 @@
             <p>{{ config('site.description') }}</p>
             @include('partials.social')
         </div>
+        @php($svcCols = array_chunk(config('site.services'), (int) ceil(count(config('site.services')) / 2), true))
         <div>
             <h4>خدماتنا</h4>
             <ul>
-                @foreach (array_slice(config('site.services'), 0, 7, true) as $slug => $s)
+                @foreach ($svcCols[0] as $slug => $s)
                     <li><a href="{{ route('service', $slug) }}">{{ $s['title'] }}</a></li>
                 @endforeach
             </ul>
         </div>
         <div>
-            <h4>خدمات جديدة</h4>
+            <h4>المزيد من الخدمات</h4>
             <ul>
-                @foreach (config('site.new_services') as $slug)
-                    <li><a href="{{ route('service', $slug) }}">{{ config("site.services.$slug.title") }}</a></li>
+                @foreach ($svcCols[1] ?? [] as $slug => $s)
+                    <li><a href="{{ route('service', $slug) }}">{{ $s['title'] }}</a></li>
                 @endforeach
-                <li><a href="{{ route('service', 'deep-sterilization') }}">التعقيم والتطهير</a></li>
             </ul>
             <h4 class="mt">مناطق الخدمة</h4>
             <ul class="footer__inline">
@@ -47,6 +47,10 @@
     </div>
     <div class="footer__bottom">
         <div class="container">
+            <p class="footer__legal">
+                <span>السجل التجاري (C.R): <bdi>{{ config('site.cr_number') }}</bdi></span>
+                <span>الرقم الضريبي: <bdi>{{ config('site.vat_number') }}</bdi></span>
+            </p>
             <p>جميع الحقوق محفوظة &copy; {{ date('Y') }} {{ config('site.name') }} - {{ config('site.name_en') }}</p>
         </div>
     </div>

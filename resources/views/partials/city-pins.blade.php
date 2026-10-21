@@ -1,0 +1,1 @@
+<span class="city-pins">@foreach (config('site.cities') as $c)<span class="city-pin"><x-icon name="map" :size="16"/>{{ $c['name'] }}</span>@endforeach</span>

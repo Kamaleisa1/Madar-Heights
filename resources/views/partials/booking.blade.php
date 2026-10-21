@@ -53,7 +53,7 @@
             </div>
             <label class="field">
                 <span>ملاحظات (اختياري)</span>
-                <textarea name="notes" rows="3" maxlength="500" placeholder="مثال: فيلا دورين، خزان أرضي 20 طن...">{{ old('notes') }}</textarea>
+                <textarea name="notes" rows="3" maxlength="500" placeholder="مثال: كنب 3 قطع ومجلس عربي، أو فيلا دورين...">{{ old('notes') }}</textarea>
             </label>
             <label class="hp" aria-hidden="true">Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
             <button type="submit" class="btn btn--order btn--lg btn--block">

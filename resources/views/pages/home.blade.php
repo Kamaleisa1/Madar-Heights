@@ -18,12 +18,12 @@
             <h1 class="hero__title" data-reveal data-delay="100">
                 {{ config('site.name') }}
                 <span class="hero__rotator">
-                    لـ<span class="typed grad" data-words='["تنظيف المنازل والفلل","غسيل الخزانات","مكافحة الحشرات","غسيل المكيفات","تنظيف المجالس والكنب"]'>تنظيف المنازل والفلل</span><span class="caret"></span>
+                    لـ<span class="typed grad" data-words='["الغسيل الجاف للمفروشات","غسيل الكنب والمجالس","تنظيف السجاد والستائر","غسيل المكيفات","تنظيف الشقق والفلل","مكافحة الحشرات"]'>الغسيل الجاف للمفروشات</span><span class="caret"></span>
                 </span>
             </h1>
             <p class="hero__lead" data-reveal data-delay="200">
-                نظافة متقنة بلمسة احترافية في <strong>الدمام والقطيف وسيهات والأحساء والجبيل</strong>.
-                فريق مدرب، معدات حديثة، ومواد آمنة… وكل ذلك بضمان.
+                غسيل جاف وعميق للمفروشات ونظافة متقنة بلمسة احترافية. فريق مدرب، معدات حديثة، ومواد آمنة… وكل ذلك بضمان.
+                @include('partials.city-pins')
             </p>
             <div class="hero__actions" data-reveal data-delay="300">
                 <a href="#booking" class="btn btn--order btn--lg">اطلب الخدمة</a>
@@ -41,7 +41,7 @@
 
         <div class="hero__visual" data-reveal="zoom" data-delay="200">
             <div class="orbit">
-                <div class="orbit__ring orbit__ring--1"><span class="orbit__sat"><x-icon name="drop" :size="22"/></span></div>
+                <div class="orbit__ring orbit__ring--1"><span class="orbit__sat"><x-icon name="sofa" :size="22"/></span></div>
                 <div class="orbit__ring orbit__ring--2"><span class="orbit__sat"><x-icon name="ac" :size="22"/></span></div>
                 <div class="orbit__ring orbit__ring--3"><span class="orbit__sat"><x-icon name="bug" :size="22"/></span></div>
                 <div class="orbit__core">
@@ -49,12 +49,12 @@
                 </div>
             </div>
             <div class="float-card float-card--1">
-                <span class="float-card__ico"><x-icon name="tank-ground" :size="22"/></span>
-                <span><strong>غسيل الخزانات</strong><small>أرضية وعلوية</small></span>
+                <span class="float-card__ico"><x-icon name="sofa" :size="22"/></span>
+                <span><strong>غسيل جاف للمفروشات</strong><small>غسيل عميق وتعقيم وتعطير</small></span>
             </div>
             <div class="float-card float-card--2">
                 <span class="float-card__ico"><x-icon name="shield" :size="22"/></span>
-                <span><strong>ضمان الجودة</strong><small>أو نعيد الخدمة مجاناً</small></span>
+                <span><strong>ضمان الجودة</strong><small>نضمن لك جودة العمل</small></span>
             </div>
             <div class="float-card float-card--3">
                 <span class="float-card__ico"><x-icon name="clock" :size="22"/></span>
@@ -80,7 +80,24 @@
 {{-- ============ ABOUT + STATS ============ --}}
 <section class="section about" id="about">
     <div class="container about__grid">
-        <div class="about__visual" data-reveal="right">
+        <div class="about__content" data-reveal="right">
+            <span class="eyebrow">من نحن</span>
+            <h2 class="section-title">{{ config('site.name') }}… <span class="grad">مدار من النظافة</span> يحيط ببيتك</h2>
+            <p>
+                {{ config('site.name') }} شركة متخصصة في <strong>الغسيل الجاف والعميق للمفروشات</strong>، وتنظيف السجاد والكنب والستائر والمجالس،
+                وغسيل المكيفات، وتنظيف الشقق والفلل والقصور والمكاتب والخزانات والمسابح، ومكافحة الحشرات.
+                نعمل بعمالة مدربة وماهرة وأحدث المعدات ومواد آمنة ومعتمدة، لنقدم لك نتيجة تليق ببيتك أو منشأتك في
+                {{ implode(' و', array_column(config('site.cities'), 'name')) }}.
+            </p>
+            <ul class="checklist checklist--2">
+                <li><x-icon name="check" :size="18"/> عمالة مدربة وذات مهارة عالية</li>
+                <li><x-icon name="check" :size="18"/> معاينة وتسعير مجاني</li>
+                <li><x-icon name="check" :size="18"/> مواد آمنة ومعتمدة</li>
+                <li><x-icon name="check" :size="18"/> ضمان على الخدمة</li>
+            </ul>
+            <a href="{{ route('about') }}" class="btn btn--primary">اعرف أكثر عنا</a>
+        </div>
+        <div class="about__visual" data-reveal="left">
             <div class="about__card about__card--main">
                 <x-icon name="sparkle" :size="56"/>
                 <strong>نظافة بمعايير عالية</strong>
@@ -91,32 +108,9 @@
                 <span>عميل سعيد</span>
             </div>
         </div>
-        <div class="about__content" data-reveal="left">
-            <span class="eyebrow">من نحن</span>
-            <h2 class="section-title">{{ config('site.name') }}… <span class="grad">مدار من النظافة</span> يحيط ببيتك</h2>
-            <p>
-                {{ config('site.name') }} شركة متخصصة في خدمات التنظيف الشامل وغسيل الخزانات ومكافحة الحشرات وغسيل المكيفات.
-                نعمل بفرق مدربة وأحدث المعدات ومواد آمنة ومعتمدة، لنقدم لك نتيجة تليق ببيتك أو منشأتك في
-                الدمام والقطيف وسيهات والأحساء والجبيل.
-            </p>
-            <ul class="checklist checklist--2">
-                <li><x-icon name="check" :size="18"/> عمالة مدربة وموثوقة</li>
-                <li><x-icon name="check" :size="18"/> معاينة وتسعير مجاني</li>
-                <li><x-icon name="check" :size="18"/> مواد آمنة ومعتمدة</li>
-                <li><x-icon name="check" :size="18"/> ضمان على الخدمة</li>
-            </ul>
-            <a href="{{ route('about') }}" class="btn btn--primary">اعرف أكثر عنا</a>
-        </div>
     </div>
 
-    <div class="container stats">
-        @foreach (config('site.stats') as $i => $st)
-            <div class="stat" data-reveal data-delay="{{ $i * 100 }}">
-                <strong data-count="{{ $st['value'] }}" data-suffix="{{ $st['suffix'] }}">0</strong>
-                <span>{{ $st['label'] }}</span>
-            </div>
-        @endforeach
-    </div>
+    @include('partials.stats')
 </section>
 
 {{-- ============ SERVICES ============ --}}
@@ -125,7 +119,7 @@
         @include('partials.section-head', [
             'eyebrow' => 'خدماتنا',
             'title' => 'كل ما يحتاجه بيتك <span class="grad">في مكان واحد</span>',
-            'text' => 'من التنظيف الشامل إلى غسيل الخزانات ومكافحة الحشرات وغسيل المكيفات، فرقنا جاهزة لخدمتك.',
+            'text' => 'خدمتنا الأساسية الغسيل الجاف والعميق للمفروشات، ومعها كل خدمات النظافة التي يحتاجها بيتك ومنشأتك.',
         ])
         <div class="svc-grid">
             @foreach (config('site.services') as $slug => $s)
@@ -135,33 +129,8 @@
     </div>
 </section>
 
-{{-- ============ NEW SERVICES HIGHLIGHT ============ --}}
-<section class="section highlight">
-    <div class="container">
-        @include('partials.section-head', [
-            'eyebrow' => 'خدمات جديدة',
-            'title' => 'مياه أنقى، هواء أنظف، وبيت <span class="grad">بلا حشرات</span>',
-        ])
-        <div class="hl-grid">
-            @foreach (config('site.new_services') as $slug)
-                @php($s = config("site.services.$slug"))
-                <article class="hl-card" data-reveal data-delay="{{ $loop->index * 120 }}">
-                    <span class="hl-card__icon"><x-icon :name="$s['icon']" :size="40"/></span>
-                    <h3>{{ $s['title'] }}</h3>
-                    <ul>
-                        @foreach (array_slice($s['features'], 0, 4) as $f)
-                            <li><x-icon name="check" :size="16"/> {{ $f }}</li>
-                        @endforeach
-                    </ul>
-                    <div class="hl-card__actions">
-                        <a href="{{ route('service', $slug) }}" class="link-more">التفاصيل <x-icon name="arrow" :size="16"/></a>
-                        <a href="#booking" class="btn btn--order btn--sm" data-pick-service="{{ $slug }}">اطلب الخدمة</a>
-                    </div>
-                </article>
-            @endforeach
-        </div>
-    </div>
-</section>
+{{-- ============ OFFER ============ --}}
+@include('partials.offer')
 
 {{-- ============ WHY US ============ --}}
 <section class="section why">

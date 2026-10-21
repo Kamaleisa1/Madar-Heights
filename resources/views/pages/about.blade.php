@@ -18,21 +18,14 @@
             <span class="eyebrow">قصتنا</span>
             <h2 class="section-title">نرتقي <span class="grad">بمعايير النظافة</span></h2>
             <p>اسم "مدار" يعبر عن رؤيتنا: خدمة متكاملة تدور حول احتياجاتك، و"هايتس" يعبر عن سعينا الدائم للوصول إلى أعلى مستويات الجودة.</p>
-            <p>بدأنا بتنظيف المنازل والفلل والمجالس، ثم توسعنا لنقدم غسيل وتعقيم الخزانات الأرضية والعلوية، ومكافحة الحشرات، وغسيل المكيفات، لنكون الوجهة الواحدة لكل احتياجات بيتك ومنشأتك في الدمام والقطيف وسيهات والأحساء والجبيل.</p>
+            <p>تخصصنا الأساسي هو الغسيل الجاف والعميق للمفروشات، ومعه نقدم تنظيف السجاد والكنب والستائر والمجالس ومراتب الأسرّة، وغسيل المكيفات، وتنظيف الشقق والفلل والقصور والمكاتب والمطابخ والحمامات والنوافذ والخزانات والمسابح، ومكافحة الحشرات، وخدمات المساجد، لنكون الوجهة الواحدة لكل احتياجات بيتك ومنشأتك في {{ implode(' و', array_column(config('site.cities'), 'name')) }}.</p>
             <div class="mv">
                 <div class="mv__item"><x-icon name="sparkle" :size="26"/><div><h3>رؤيتنا</h3><p>أن نكون الشركة الأكثر ثقة في خدمات النظافة بالمنطقة الشرقية.</p></div></div>
                 <div class="mv__item"><x-icon name="shield" :size="26"/><div><h3>رسالتنا</h3><p>تقديم خدمة احترافية آمنة بأسعار عادلة والتزام كامل بالمواعيد.</p></div></div>
             </div>
         </div>
     </div>
-    <div class="container stats">
-        @foreach (config('site.stats') as $i => $st)
-            <div class="stat" data-reveal data-delay="{{ $i * 100 }}">
-                <strong data-count="{{ $st['value'] }}" data-suffix="{{ $st['suffix'] }}">0</strong>
-                <span>{{ $st['label'] }}</span>
-            </div>
-        @endforeach
-    </div>
+    @include('partials.stats')
 </section>
 
 <section class="section why section--alt">

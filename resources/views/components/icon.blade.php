@@ -33,6 +33,12 @@
         'up' => '<path d="M6 15l6-6 6 6"/>',
         'calendar' => '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
         'sparkle' => '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/>',
+        'curtain' => '<path d="M3 3h18"/><path d="M5 3v18M19 3v18"/><path d="M5 3c0 6 3 9 5 10-2 2-3 5-3 8M19 3c0 6-3 9-5 10 2 2 3 5 3 8"/>',
+        'mattress' => '<rect x="2" y="9" width="20" height="8" rx="2"/><path d="M2 13h20"/><path d="M4 17v3M20 17v3"/><path d="M6 9V6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/>',
+        'kitchen' => '<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 10h16"/><path d="M8 6.5h0M12 6.5h0M16 6.5h0" stroke-width="2.6"/><circle cx="12" cy="15.5" r="3"/>',
+        'window' => '<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/><path d="M7 6l3 3M14 6l3 3"/>',
+        'pool' => '<path d="M8 16V5a2 2 0 0 1 4 0M16 16V5a2 2 0 0 0-2-2"/><path d="M8 9h8M8 13h8"/><path d="M2 19c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/>',
+        'mosque' => '<path d="M3 21h18"/><path d="M6 21v-7a6 6 0 0 1 12 0v7"/><path d="M12 5c-1 1.5-1 2.5 0 3 1-.5 1-1.5 0-3z"/><path d="M12 8v0"/><path d="M10 21v-4a2 2 0 0 1 4 0v4"/><path d="M2 21V11l1-2 1 2v10M20 21V11l1-2 1 2v10"/>',
         'drop' => '<path d="M12 3c4 4.5 6 7.8 6 10.5a6 6 0 0 1-12 0C6 10.8 8 7.5 12 3z"/>',
     ];
     $brands = [
