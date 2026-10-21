@@ -859,3 +859,9 @@ a.chip:hover, .chip--link:hover { border-color: var(--accent); color: var(--prim
     [dir="ltr"] .brand__text { display: none; }
     [dir="ltr"] .floating { inset-inline-end: 16px; }
 }
+
+/* "من نحن" is the first section on the home page */
+.about--top { padding: 64px 0 90px; background: linear-gradient(180deg, var(--surface), var(--hero-from)); }
+.section--stats { padding: 80px 0 30px; }
+.section--stats .stats { margin-top: 0; }
+@media (max-width: 640px) { .about--top { padding: 44px 0 70px; } }

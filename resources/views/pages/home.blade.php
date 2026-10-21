@@ -3,6 +3,38 @@
 @section('body_class', 'is-home')
 
 @section('content')
+{{-- ============ ABOUT (first section) ============ --}}
+<section class="section about about--top" id="about">
+    <div class="container about__grid">
+        <div class="about__content" data-reveal="right">
+            <span class="eyebrow">{{ __('من نحن') }}</span>
+            <h2 class="section-title">{{ config('site.name') }}… {!! __('<span class="grad">مدار من النظافة</span> يحيط ببيتك') !!}</h2>
+            <p>
+                {!! __(':name شركة متخصصة في <strong>الغسيل الجاف والعميق للمفروشات</strong>، وتنظيف السجاد والكنب والستائر والمجالس، وغسيل المكيفات، وتنظيف الشقق والفلل والقصور والمكاتب والخزانات والمسابح، ومكافحة الحشرات. نعمل بعمالة مدربة وماهرة وأحدث المعدات ومواد آمنة ومعتمدة، لنقدم لك نتيجة تليق ببيتك أو منشأتك في :cities.', ['name' => e(config('site.name')), 'cities' => e(cities_list())]) !!}
+            </p>
+            <ul class="checklist checklist--2">
+                <li><x-icon name="check" :size="18"/> {{ __('عمالة مدربة وذات مهارة عالية') }}</li>
+                <li><x-icon name="check" :size="18"/> {{ __('معاينة وتسعير مجاني') }}</li>
+                <li><x-icon name="check" :size="18"/> {{ __('مواد آمنة ومعتمدة') }}</li>
+                <li><x-icon name="check" :size="18"/> {{ __('ضمان على الخدمة') }}</li>
+            </ul>
+            <a href="{{ lroute('about') }}" class="btn btn--primary">{{ __('اعرف أكثر عنا') }}</a>
+        </div>
+        <div class="about__visual" data-reveal="left">
+            <div class="about__card about__card--main">
+                <x-icon name="sparkle" :size="56"/>
+                <strong>{{ __('نظافة بمعايير عالية') }}</strong>
+                <span>{{ __('منذ سنوات ونحن نخدم بيوت وشركات المنطقة الشرقية') }}</span>
+            </div>
+            <div class="about__card about__card--badge">
+                <strong data-count="5000" data-suffix="+">0</strong>
+                <span>{{ __('عميل سعيد') }}</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 {{-- ============ HERO ============ --}}
 <section class="hero">
     <div class="hero__bg" aria-hidden="true">
@@ -18,7 +50,7 @@
             <h1 class="hero__title" data-reveal data-delay="100">
                 {{ config('site.name') }}
                 <span class="hero__rotator">
-                    @php($words = is_en() ? ['Upholstery dry cleaning', 'Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'] : ['الغسيل الجاف للمفروشات', 'غسيل الكنب والمجالس', 'تنظيف السجاد والستائر', 'غسيل المكيفات', 'تنظيف الشقق والفلل', 'مكافحة الحشرات'])
+                    @php($words = is_en() ? ['Upholstery dry cleaning', 'Deep upholstery cleaning', 'Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'] : ['الغسيل الجاف للمفروشات', 'الغسيل العميق للمفروشات', 'غسيل الكنب والمجالس', 'تنظيف السجاد والستائر', 'غسيل المكيفات', 'تنظيف الشقق والفلل', 'مكافحة الحشرات'])
                     <span class="typed grad" data-words='@json($words, JSON_UNESCAPED_UNICODE)'>{{ $words[0] }}</span><span class="caret"></span>
                 </span>
             </h1>
@@ -64,7 +96,7 @@
         </div>
     </div>
 
-    <a href="#about" class="scroll-hint" aria-label="{{ __('انزل للأسفل') }}"><span></span></a>
+    <a href="#services" class="scroll-hint" aria-label="{{ __('انزل للأسفل') }}"><span></span></a>
 </section>
 
 {{-- ============ MARQUEE ============ --}}
@@ -78,36 +110,8 @@
     </div>
 </div>
 
-{{-- ============ ABOUT + STATS ============ --}}
-<section class="section about" id="about">
-    <div class="container about__grid">
-        <div class="about__content" data-reveal="right">
-            <span class="eyebrow">{{ __('من نحن') }}</span>
-            <h2 class="section-title">{{ config('site.name') }}… {!! __('<span class="grad">مدار من النظافة</span> يحيط ببيتك') !!}</h2>
-            <p>
-                {!! __(':name شركة متخصصة في <strong>الغسيل الجاف والعميق للمفروشات</strong>، وتنظيف السجاد والكنب والستائر والمجالس، وغسيل المكيفات، وتنظيف الشقق والفلل والقصور والمكاتب والخزانات والمسابح، ومكافحة الحشرات. نعمل بعمالة مدربة وماهرة وأحدث المعدات ومواد آمنة ومعتمدة، لنقدم لك نتيجة تليق ببيتك أو منشأتك في :cities.', ['name' => e(config('site.name')), 'cities' => e(cities_list())]) !!}
-            </p>
-            <ul class="checklist checklist--2">
-                <li><x-icon name="check" :size="18"/> {{ __('عمالة مدربة وذات مهارة عالية') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('معاينة وتسعير مجاني') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('مواد آمنة ومعتمدة') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('ضمان على الخدمة') }}</li>
-            </ul>
-            <a href="{{ lroute('about') }}" class="btn btn--primary">{{ __('اعرف أكثر عنا') }}</a>
-        </div>
-        <div class="about__visual" data-reveal="left">
-            <div class="about__card about__card--main">
-                <x-icon name="sparkle" :size="56"/>
-                <strong>{{ __('نظافة بمعايير عالية') }}</strong>
-                <span>{{ __('منذ سنوات ونحن نخدم بيوت وشركات المنطقة الشرقية') }}</span>
-            </div>
-            <div class="about__card about__card--badge">
-                <strong data-count="5000" data-suffix="+">0</strong>
-                <span>{{ __('عميل سعيد') }}</span>
-            </div>
-        </div>
-    </div>
-
+{{-- ============ STATS ============ --}}
+<section class="section section--stats">
     @include('partials.stats')
 </section>
 

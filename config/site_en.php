@@ -53,9 +53,15 @@ return [
     'services' => [
         'upholstery-cleaning' => [
             'title' => 'Upholstery Dry Cleaning',
-            'short' => 'Our core service: dry cleaning and deep washing of upholstery that lifts stains and dust from deep in the fibres, with sanitizing and perfuming.',
-            'body' => 'Dry cleaning means cleaning upholstery with specialised products and machines using very little water, so the fabric dries fast and keeps its colour and feel without shrinking or damage. We complete it with deep washing that reaches deep into the fibres to remove tough stains, built-up dust and odours, then sanitize the upholstery against bacteria and dust mites and finish with premium fragrance. This is our core service and what we are known for.',
-            'features' => ['Dry cleaning that protects fabric and colour', 'Deep washing that reaches deep into the fibres', 'Removes tough stains and odours', 'Fast drying', 'Sanitizing against bacteria and dust mites', 'Perfuming after washing'],
+            'short' => 'Our core service: upholstery dry cleaning with very little water — it dries fast and keeps the fabric\'s colour and feel, with sanitizing and perfuming.',
+            'body' => 'Dry cleaning means cleaning upholstery with specialised products and machines using very little water, so the fabric dries fast and keeps its colour and feel without shrinking or damage. It suits delicate fabrics and furniture you need to use the same day. After cleaning we sanitize the upholstery against bacteria and dust mites and finish with premium fragrance. This is our core service and what we are known for.',
+            'features' => ['Dry cleaning that protects fabric and colour', 'Suitable for delicate fabrics', 'Fast drying, usable the same day', 'Removes stains and dust', 'Sanitizing against bacteria and dust mites', 'Perfuming after cleaning'],
+        ],
+        'deep-upholstery-cleaning' => [
+            'title' => 'Deep Upholstery Cleaning',
+            'short' => 'Deep washing that reaches deep into the fibres to remove tough stains, built-up dust and odours, with sanitizing and perfuming.',
+            'body' => 'Deep cleaning is for upholstery that has collected dust, tough stains and odours over time. We use injection, extraction and steam machines that reach deep into the fibres, pulling dirt out from inside rather than just the surface, then sanitize the upholstery against bacteria and dust mites and perfume it so it looks like new.',
+            'features' => ['Reaches deep into the fibres', 'Removes tough and old stains', 'Extracts built-up dust', 'Odour removal', 'Sanitizing against bacteria and dust mites', 'Perfuming after washing'],
         ],
         'carpet-curtain-cleaning' => [
             'title' => 'Carpet, Rug & Curtain Cleaning',
@@ -105,17 +111,11 @@ return [
             'body' => 'We clean windows and glass facades inside and out, removing dust, stains and deposits from the glass, frames and tracks, then polish the glass until it is crystal clear with no streaks.',
             'features' => ['Glass cleaned inside and out', 'Frames and tracks', 'Dust and deposit removal', 'Streak-free polishing', 'Glass facade cleaning', 'Safe equipment for heights'],
         ],
-        'ground-tanks' => [
-            'title' => 'Underground Tank Cleaning',
-            'short' => 'Cleaning and sanitizing underground water tanks and removing dirt and sediment with approved products.',
-            'body' => 'Your underground tank is your home\'s water source, and over time dirt and sediment build up inside it. We empty the tank, extract the sediment, pressure-wash the walls and floor, then sanitize it with approved products that are safe for drinking water.',
-            'features' => ['Emptying and sediment extraction', 'Dirt and sediment removal', 'High-pressure washing', 'Sanitizing with safe approved products', 'Tank insulation', 'Lid and opening maintenance'],
-        ],
-        'roof-tanks' => [
-            'title' => 'Rooftop Tank Cleaning',
-            'short' => 'Cleaning plastic and fibreglass rooftop tanks, sanitizing them and removing dirt and sediment.',
-            'body' => 'We clean rooftop tanks of every type (plastic, fibreglass, steel), removing dirt, sediment and rust, then sanitize them with chlorine at the correct ratio and rinse them thoroughly.',
-            'features' => ['Dirt and sediment removal', 'Sanitizing at correct ratios', 'Full rinse after sanitizing', 'Replacing damaged lids', 'All tank types', 'Tank condition report'],
+        'tank-cleaning' => [
+            'title' => 'Water Tank Cleaning (Rooftop & Underground)',
+            'short' => 'Cleaning and sanitizing rooftop and underground tanks of every type, removing dirt and sediment with approved products.',
+            'body' => 'Your tank is your home\'s water source, and over time dirt and sediment build up inside it. We clean underground and rooftop tanks of every type (concrete, plastic, fibreglass, steel): we empty the tank, extract the sediment, pressure-wash the walls and floor, then sanitize it with approved products that are safe for drinking water and rinse it thoroughly.',
+            'features' => ['Underground and rooftop tanks', 'Emptying and sediment extraction', 'Dirt and sediment removal', 'High-pressure washing', 'Sanitizing with safe approved products', 'Full rinse after sanitizing'],
         ],
         'pool-cleaning' => [
             'title' => 'Swimming Pool Cleaning',
