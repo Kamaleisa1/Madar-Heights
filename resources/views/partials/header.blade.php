@@ -1,6 +1,9 @@
+<div class="site-top">
 <div class="topbar">
     <div class="container topbar__inner">
         <div class="topbar__info">
+            <a href="{{ lroute('home') }}" class="topbar__logo"><img src="{{ asset('assets/img/logo-dark.webp') }}" alt="{{ config('site.name_en') }}" width="36" height="29"></a>
+            <span class="topbar__sep"></span>
             <a href="tel:{{ config('site.phone') }}"><x-icon name="phone" :size="15"/> <span dir="ltr">{{ config('site.phone_display') }}</span></a>
             <span class="topbar__sep"></span>
             <span><x-icon name="clock" :size="15"/> {{ config('site.working_hours') }}</span>
@@ -56,3 +59,4 @@
         </div>
     </div>
 </header>
+</div>

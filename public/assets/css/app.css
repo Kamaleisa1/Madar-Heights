@@ -78,7 +78,7 @@ body {
     color: var(--text);
     background: var(--bg);
     transition: background-color .4s ease, color .4s ease;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 img, svg { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -865,3 +865,15 @@ a.chip:hover, .chip--link:hover { border-color: var(--accent); color: var(--prim
 .section--stats { padding: 80px 0 30px; }
 .section--stats .stats { margin-top: 0; }
 @media (max-width: 640px) { .about--top { padding: 44px 0 70px; } }
+
+/* Top bar + header stay fixed at the top while scrolling */
+.site-top { position: sticky; top: 0; z-index: 1000; }
+.site-top .header { position: relative; top: auto; }
+body.nav-open .site-top { z-index: 1200; }
+.topbar__logo img { height: 29px; width: auto; display: block; }
+section[id] { scroll-margin-top: 140px; }
+@media (max-width: 640px) {
+    .topbar__info > span:not(.topbar__sep) { display: none; }
+    .topbar__info > .topbar__sep ~ .topbar__sep { display: none; }
+    .topbar__inner { min-height: 40px; }
+}
