@@ -4,7 +4,7 @@
 @section('description', $service['short'])
 
 @section('content')
-@include('partials.page-hero', ['title' => $service['title'], 'text' => $service['short'], 'crumbs' => ['خدماتنا' => route('services')]])
+@include('partials.page-hero', ['title' => $service['title'], 'text' => $service['short'], 'crumbs' => [__('خدماتنا') => lroute('services')]])
 
 <section class="section">
     <div class="container detail">
@@ -13,38 +13,38 @@
                 <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
                 <x-icon :name="$service['icon']" :size="110"/>
             </div>
-            <h2 data-reveal>{{ $service['title'] }} في {{ implode(' و', array_column(config('site.cities'), 'name')) }}</h2>
+            <h2 data-reveal>{{ __(':service في :cities', ['service' => $service['title'], 'cities' => cities_list()]) }}</h2>
             <p data-reveal>{{ $service['body'] }}</p>
 
-            <h3 data-reveal>ماذا تشمل الخدمة؟</h3>
+            <h3 data-reveal>{{ __('ماذا تشمل الخدمة؟') }}</h3>
             <ul class="feature-list">
                 @foreach ($service['features'] as $f)
                     <li data-reveal data-delay="{{ $loop->index * 70 }}"><x-icon name="check" :size="18"/> {{ $f }}</li>
                 @endforeach
             </ul>
 
-            <h3 data-reveal>نقدم الخدمة في</h3>
+            <h3 data-reveal>{{ __('نقدم الخدمة في') }}</h3>
             <div class="chips" data-reveal>
                 @foreach (config('site.cities') as $cslug => $c)
-                    <a href="{{ route('area', $cslug) }}" class="chip"><x-icon name="map" :size="15"/> {{ $service['title'] }} في {{ $c['name'] }}</a>
+                    <a href="{{ lroute('area', $cslug) }}" class="chip"><x-icon name="map" :size="15"/> {{ __(':service في :cities', ['service' => $service['title'], 'cities' => $c['name']]) }}</a>
                 @endforeach
             </div>
         </article>
 
         <aside class="detail__side">
             <div class="card side-card" data-reveal="left">
-                <h3>خدمات أخرى</h3>
+                <h3>{{ __('خدمات أخرى') }}</h3>
                 <ul class="side-links">
                     @foreach (config('site.services') as $oslug => $o)
                         @continue($oslug === $slug)
-                        <li><a href="{{ route('service', $oslug) }}"><x-icon :name="$o['icon']" :size="18"/> {{ $o['title'] }}</a></li>
+                        <li><a href="{{ lroute('service', $oslug) }}"><x-icon :name="$o['icon']" :size="18"/> {{ $o['title'] }}</a></li>
                     @endforeach
                 </ul>
             </div>
             <div class="card side-card side-card--cta" data-reveal="left" data-delay="120">
-                <h3>تحتاج هذه الخدمة؟</h3>
-                <p>تواصل معنا الآن واحصل على معاينة مجانية.</p>
-                <a href="#booking" class="btn btn--order btn--block">اطلب الخدمة</a>
+                <h3>{{ __('تحتاج هذه الخدمة؟') }}</h3>
+                <p>{{ __('تواصل معنا الآن واحصل على معاينة مجانية.') }}</p>
+                <a href="#booking" class="btn btn--order btn--block">{{ __('اطلب الخدمة') }}</a>
                 <a href="tel:{{ config('site.phone') }}" class="btn btn--ghost btn--block"><x-icon name="phone" :size="18"/> <span dir="ltr">{{ config('site.phone_display') }}</span></a>
             </div>
         </aside>

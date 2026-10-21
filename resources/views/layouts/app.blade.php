@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="{{ app()->getLocale() }}" dir="{{ is_en() ? 'ltr' : 'rtl' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@hasSection('title')@yield('title') | {{ config('site.name') }}@else{{ config('site.name') }} {{ config('site.tagline') }} | الدمام - القطيف - سيهات - الأحساء - الجبيل@endif</title>
+    <title>@hasSection('title')@yield('title') | {{ config('site.name') }}@else{{ config('site.name') }} {{ config('site.tagline') }} | {{ implode(' - ', array_column(config('site.cities'), 'name')) }}@endif</title>
     <meta name="description" content="@yield('description', config('site.description'))">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="theme-color" content="#061A44">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_SA">
+    <meta property="og:locale" content="{{ is_en() ? 'en_US' : 'ar_SA' }}">
+    <link rel="alternate" hreflang="ar" href="{{ switch_locale_url('ar') }}">
+    <link rel="alternate" hreflang="en" href="{{ switch_locale_url('en') }}">
+    <link rel="alternate" hreflang="x-default" href="{{ switch_locale_url('ar') }}">
     <meta property="og:site_name" content="{{ config('site.name') }}">
     <meta property="og:title" content="@yield('title', config('site.name').' '.config('site.tagline'))">
     <meta property="og:description" content="@yield('description', config('site.description'))">
@@ -23,7 +26,7 @@
         (function () {
             var t = null;
             try { t = localStorage.getItem('mh-theme'); } catch (e) {}
-            if (t !== 'light' && t !== 'dark') t = 'dark'; // dark by default
+            if (t !== 'light' && t !== 'dark') t = 'light'; // light by default
             document.documentElement.setAttribute('data-theme', t);
             document.documentElement.classList.add('js');
         })();
@@ -41,7 +44,7 @@
         'name' => config('site.name'),
         'alternateName' => config('site.name_en'),
         'description' => config('site.description'),
-        'url' => url('/'),
+        'url' => lroute('home'),
         'telephone' => config('site.phone'),
         'logo' => asset('assets/img/logo.png'),
         'areaServed' => array_values(array_map(fn ($c) => $c['name'], config('site.cities'))),

@@ -55,15 +55,21 @@ class SiteController extends Controller
 
     public function sitemap(): Response
     {
-        $urls = [route('home'), route('services'), route('about'), route('blog'), route('contact')];
-        foreach (array_keys(config('site.services')) as $slug) {
-            $urls[] = route('service', $slug);
-        }
-        foreach (array_keys(config('site.cities')) as $slug) {
-            $urls[] = route('area', $slug);
-        }
-        foreach (array_keys(config('site.posts')) as $slug) {
-            $urls[] = route('post', $slug);
+        $names = ['home' => [], 'services' => [], 'about' => [], 'blog' => [], 'contact' => []];
+        $urls = [];
+        foreach (['', 'en.'] as $prefix) {
+            foreach ($names as $name => $params) {
+                $urls[] = route($prefix.$name, $params);
+            }
+            foreach (array_keys(config('site.services')) as $slug) {
+                $urls[] = route($prefix.'service', $slug);
+            }
+            foreach (array_keys(config('site.cities')) as $slug) {
+                $urls[] = route($prefix.'area', $slug);
+            }
+            foreach (array_keys(config('site.posts')) as $slug) {
+                $urls[] = route($prefix.'post', $slug);
+            }
         }
 
         return response()

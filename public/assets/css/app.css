@@ -822,3 +822,40 @@ a.chip:hover, .chip--link:hover { border-color: var(--accent); color: var(--prim
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     .js [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* ---------- Language switch ---------- */
+.lang-switch {
+    min-width: 44px; height: 44px; padding: 0 12px; border-radius: 22px; display: grid; place-items: center;
+    border: 1px solid var(--border); background: var(--surface-2); color: var(--primary);
+    font-weight: 800; font-size: 15px; transition: background .25s, color .25s, transform .25s;
+}
+.lang-switch:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+
+/* ---------- Review screenshots ---------- */
+.testi__avatar { background: #25D366; }
+.reviews-shots { margin-top: 56px; }
+.reviews-shots__title { text-align: center; font-size: 20px; margin-bottom: 22px; color: var(--muted); }
+.reviews-shots__grid { columns: 3 260px; column-gap: 18px; }
+.reviews-shots__item {
+    display: block; break-inside: avoid; margin-bottom: 18px; border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border); box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s;
+}
+.reviews-shots__item:hover { transform: translateY(-4px) rotate(-.5deg); box-shadow: var(--shadow-lg); }
+.reviews-shots__item img { width: 100%; height: auto; }
+
+/* ---------- English (left-to-right) adjustments ---------- */
+[dir="ltr"] .marquee__track { animation-name: marquee-ltr; }
+@keyframes marquee-ltr { to { transform: translateX(-50%); } }
+[dir="ltr"] .link-more .icon,
+[dir="ltr"] .svc-card__more .icon { transform: scaleX(-1); }
+[dir="ltr"] .link-more:hover .icon { transform: scaleX(-1) translateX(-5px); }
+[dir="ltr"] .hero__title { letter-spacing: -.5px; }
+[dir="ltr"] .hero__rotator { font-size: .5em; }
+[dir="ltr"] .floating { inset-inline-start: auto; inset-inline-end: 22px; }
+[dir="ltr"] .floating__label { inset-inline-start: auto; inset-inline-end: 72px; }
+[dir="ltr"] .to-top { inset-inline-end: auto; inset-inline-start: 22px; }
+.about__card--main span { max-width: 72%; }
+@media (max-width: 640px) {
+    [dir="ltr"] .brand__text { display: none; }
+    [dir="ltr"] .floating { inset-inline-end: 16px; }
+}

@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'شركة تنظيف في '.$city['name'])
-@section('description', 'مدار هايتس: شركة تنظيف وغسيل خزانات ومكافحة حشرات وغسيل مكيفات في '.$city['name'].'. '.$city['intro'])
+@section('title', __('شركة تنظيف في :city', ['city' => $city['name']]))
+@section('description', __('مدار هايتس: غسيل مفروشات وتنظيف وغسيل مكيفات وخزانات ومكافحة حشرات في :city.', ['city' => $city['name']]).' '.$city['intro'])
 
 @section('content')
-@include('partials.page-hero', ['title' => 'شركة تنظيف في '.$city['name'], 'text' => $city['intro']])
+@include('partials.page-hero', ['title' => __('شركة تنظيف في :city', ['city' => $city['name']]), 'text' => $city['intro']])
 
 <section class="section">
     <div class="container">
         @include('partials.section-head', [
             'eyebrow' => $city['name'],
-            'title' => 'خدماتنا في <span class="grad">' . e($city['name']) . '</span>',
+            'title' => __('خدماتنا في <span class="grad">:city</span>', ['city' => e($city['name'])]),
         ])
         <div class="svc-grid">
             @foreach (config('site.services') as $slug => $s)
@@ -23,8 +23,8 @@
 <section class="section section--alt">
     <div class="container">
         @include('partials.section-head', [
-            'eyebrow' => 'الأحياء',
-            'title' => 'نغطي جميع أحياء <span class="grad">' . e($city['name']) . '</span>',
+            'eyebrow' => __('الأحياء'),
+            'title' => __('نغطي جميع أحياء <span class="grad">:city</span>', ['city' => e($city['name'])]),
         ])
         <div class="chips chips--center" data-reveal>
             @foreach ($city['districts'] as $d)
@@ -34,7 +34,7 @@
         <div class="chips chips--center mt" data-reveal>
             @foreach (config('site.cities') as $cslug => $c)
                 @continue($cslug === $slug)
-                <a href="{{ route('area', $cslug) }}" class="chip chip--link">شركة تنظيف في {{ $c['name'] }}</a>
+                <a href="{{ lroute('area', $cslug) }}" class="chip chip--link">{{ __('شركة تنظيف في :city', ['city' => $c['name']]) }}</a>
             @endforeach
         </div>
     </div>

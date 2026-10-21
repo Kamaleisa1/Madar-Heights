@@ -4,7 +4,7 @@
     @php($hasImage = ! empty($offer['image']) && file_exists(public_path($offer['image'])))
     <section class="section offer" id="offer">
         <div class="container">
-            <a href="{{ route('home') }}#booking" class="offer__card @if ($hasImage) offer__card--image @endif" data-pick-service="{{ $offer['service'] }}" data-reveal="zoom" aria-label="{{ $offer['title'] }}">
+            <a href="{{ lroute('home') }}#booking" class="offer__card @if ($hasImage) offer__card--image @endif" data-pick-service="{{ $offer['service'] }}" data-reveal="zoom" aria-label="{{ $offer['title'] }}">
                 @if ($hasImage)
                     <img src="{{ asset($offer['image']) }}?v={{ filemtime(public_path($offer['image'])) }}" alt="{{ $offer['title'] }}" loading="lazy">
                 @else
@@ -15,7 +15,7 @@
                         <small>{{ $svc['title'] }}</small>
                         <strong>{{ $offer['title'] }}</strong>
                         <span>{{ $offer['text'] }}</span>
-                        <span class="btn btn--order">اطلب الخدمة</span>
+                        <span class="btn btn--order">{{ __('اطلب الخدمة') }}</span>
                     </span>
                     <span class="offer__shine" aria-hidden="true"></span>
                 @endif

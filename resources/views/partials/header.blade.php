@@ -15,41 +15,42 @@
     <div class="container header__inner">
         @include('partials.brand')
 
-        <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
+        <nav class="nav" id="nav" aria-label="{{ __('القائمة الرئيسية') }}">
             <ul class="nav__list">
-                <li><a href="{{ route('home') }}" @class(['is-active' => request()->routeIs('home')])>الرئيسية</a></li>
-                <li><a href="{{ route('about') }}" @class(['is-active' => request()->routeIs('about')])>من نحن</a></li>
+                <li><a href="{{ lroute('home') }}" @class(['is-active' => route_is('home')])>{{ __('الرئيسية') }}</a></li>
+                <li><a href="{{ lroute('about') }}" @class(['is-active' => route_is('about')])>{{ __('من نحن') }}</a></li>
                 <li class="has-drop">
-                    <a href="{{ route('services') }}" @class(['is-active' => request()->routeIs('service*')])>خدماتنا <x-icon name="chevron" :size="14"/></a>
+                    <a href="{{ lroute('services') }}" @class(['is-active' => route_is('service*')])>{{ __('خدماتنا') }} <x-icon name="chevron" :size="14"/></a>
                     <div class="drop drop--grid">
                         @foreach (config('site.services') as $slug => $s)
-                            <a href="{{ route('service', $slug) }}"><x-icon :name="$s['icon']" :size="18"/> {{ $s['title'] }}
-                                @if (! empty($s['featured']))<em class="badge">الأساسية</em>@endif
+                            <a href="{{ lroute('service', $slug) }}"><x-icon :name="$s['icon']" :size="18"/> {{ $s['title'] }}
+                                @if (! empty($s['featured']))<em class="badge">{{ __('الأساسية') }}</em>@endif
                             </a>
                         @endforeach
                     </div>
                 </li>
                 <li class="has-drop">
-                    <a href="#areas" @class(['is-active' => request()->routeIs('area')])>مناطق الخدمة <x-icon name="chevron" :size="14"/></a>
+                    <a href="#areas" @class(['is-active' => route_is('area')])>{{ __('مناطق الخدمة') }} <x-icon name="chevron" :size="14"/></a>
                     <div class="drop">
                         @foreach (config('site.cities') as $slug => $c)
-                            <a href="{{ route('area', $slug) }}"><x-icon name="map" :size="18"/> {{ $c['name'] }}</a>
+                            <a href="{{ lroute('area', $slug) }}"><x-icon name="map" :size="18"/> {{ $c['name'] }}</a>
                         @endforeach
                     </div>
                 </li>
-                <li><a href="{{ route('blog') }}" @class(['is-active' => request()->routeIs('blog', 'post')])>المدونة</a></li>
-                <li><a href="{{ route('contact') }}" @class(['is-active' => request()->routeIs('contact')])>اتصل بنا</a></li>
+                <li><a href="{{ lroute('blog') }}" @class(['is-active' => route_is('blog', 'post')])>{{ __('المدونة') }}</a></li>
+                <li><a href="{{ lroute('contact') }}" @class(['is-active' => route_is('contact')])>{{ __('اتصل بنا') }}</a></li>
             </ul>
-            <a href="{{ route('home') }}#booking" class="btn btn--order nav__order">اطلب الخدمة</a>
+            <a href="{{ lroute('home') }}#booking" class="btn btn--order nav__order">{{ __('اطلب الخدمة') }}</a>
         </nav>
 
         <div class="header__actions">
-            <button type="button" class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع الليلي والنهاري">
+            <a href="{{ switch_locale_url() }}" class="lang-switch" hreflang="{{ is_en() ? 'ar' : 'en' }}" lang="{{ is_en() ? 'ar' : 'en' }}" aria-label="{{ is_en() ? 'العربية' : 'English' }}">{{ is_en() ? 'عربي' : 'EN' }}</a>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="{{ __('تبديل الوضع الليلي والنهاري') }}">
                 <x-icon name="sun" :size="20" class="theme-toggle__sun"/>
                 <x-icon name="moon" :size="20" class="theme-toggle__moon"/>
             </button>
-            <a href="{{ route('home') }}#booking" class="btn btn--order hide-md">اطلب الخدمة</a>
-            <button type="button" class="burger" id="burger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">
+            <a href="{{ lroute('home') }}#booking" class="btn btn--order hide-md">{{ __('اطلب الخدمة') }}</a>
+            <button type="button" class="burger" id="burger" aria-label="{{ __('فتح القائمة') }}" aria-expanded="false" aria-controls="nav">
                 <span></span><span></span><span></span>
             </button>
         </div>

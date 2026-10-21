@@ -23,26 +23,26 @@ class BookingController extends Controller
             'notes' => ['nullable', 'string', 'max:500'],
             'website' => ['prohibited'], // honeypot
         ], [], [
-            'name' => 'الاسم',
-            'phone' => 'رقم الجوال',
-            'service' => 'الخدمة',
-            'city' => 'المدينة',
-            'notes' => 'الملاحظات',
+            'name' => __('الاسم'),
+            'phone' => __('رقم الجوال'),
+            'service' => __('الخدمة'),
+            'city' => __('المدينة'),
+            'notes' => __('الملاحظات'),
         ]);
 
         unset($data['website']);
 
-        Log::channel('bookings')->info('New booking', $data + ['ip' => $request->ip()]);
+        Log::channel('bookings')->info('New booking', $data + ['locale' => app()->getLocale(), 'ip' => $request->ip()]);
 
         $lines = [
-            'طلب خدمة جديد من موقع '.config('site.name'),
-            'الاسم: '.$data['name'],
-            'الجوال: '.$data['phone'],
-            'الخدمة: '.config('site.services.'.$data['service'].'.title'),
-            'المدينة: '.config('site.cities.'.$data['city'].'.name'),
+            __('طلب خدمة جديد من موقع :name', ['name' => config('site.name')]),
+            __('الاسم').': '.$data['name'],
+            __('الجوال').': '.$data['phone'],
+            __('الخدمة').': '.config('site.services.'.$data['service'].'.title'),
+            __('المدينة').': '.config('site.cities.'.$data['city'].'.name'),
         ];
         if (! empty($data['notes'])) {
-            $lines[] = 'ملاحظات: '.$data['notes'];
+            $lines[] = __('ملاحظات').': '.$data['notes'];
         }
 
         return redirect()->away(
