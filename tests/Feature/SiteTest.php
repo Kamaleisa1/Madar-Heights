@@ -110,4 +110,26 @@ class SiteTest extends TestCase
     {
         $this->get('/')->assertSee("t = 'light'; // light by default", false);
     }
+
+    public function test_car_wash_is_listed_as_coming_soon_but_not_bookable(): void
+    {
+        $this->get('/services')->assertSee('غسيل السيارات')->assertSee('قريباً');
+        $this->get('/services/car-wash')->assertOk()->assertDontSee('<option value="car-wash"', false);
+        $this->get('/en/services/car-wash')->assertOk()->assertSee('Coming soon');
+
+        $this->withoutMiddleware(\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class)
+            ->post('/booking', ['name' => 'أحمد', 'phone' => '0551234567', 'service' => 'car-wash', 'city' => 'dammam'])
+            ->assertSessionHasErrors('service');
+    }
+
+    public function test_removed_words_and_old_screenshot_are_gone(): void
+    {
+        foreach (['/', '/services', '/services/upholstery-cleaning', '/services/sofa-majlis-cleaning', '/services/mattress-cleaning', '/services/mosque-cleaning'] as $url) {
+            $this->get($url)->assertDontSee('بخار')->assertDontSee('مازكلين')->assertDontSee('review-1.jpg')->assertDontSee('دورات المياه');
+        }
+        foreach (['/en', '/en/services/sofa-majlis-cleaning', '/en/services/mattress-cleaning'] as $url) {
+            $this->get($url)->assertDontSee('steam')->assertDontSee('Steam');
+        }
+        $this->assertFileDoesNotExist(public_path('assets/img/reviews/review-1.jpg'));
+    }
 }

@@ -39,6 +39,7 @@
         'window' => '<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/><path d="M7 6l3 3M14 6l3 3"/>',
         'pool' => '<path d="M8 16V5a2 2 0 0 1 4 0M16 16V5a2 2 0 0 0-2-2"/><path d="M8 9h8M8 13h8"/><path d="M2 19c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/>',
         'mosque' => '<path d="M3 21h18"/><path d="M6 21v-7a6 6 0 0 1 12 0v7"/><path d="M12 5c-1 1.5-1 2.5 0 3 1-.5 1-1.5 0-3z"/><path d="M12 8v0"/><path d="M10 21v-4a2 2 0 0 1 4 0v4"/><path d="M2 21V11l1-2 1 2v10M20 21V11l1-2 1 2v10"/>',
+        'car' => '<path d="M5 17h14v-5l-2-5H7l-2 5z"/><path d="M5 12h14"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M3 12h2M19 12h2"/>',
         'drop' => '<path d="M12 3c4 4.5 6 7.8 6 10.5a6 6 0 0 1-12 0C6 10.8 8 7.5 12 3z"/>',
     ];
     $brands = [

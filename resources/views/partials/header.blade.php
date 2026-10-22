@@ -28,6 +28,7 @@
                         @foreach (config('site.services') as $slug => $s)
                             <a href="{{ lroute('service', $slug) }}"><x-icon :name="$s['icon']" :size="18"/> {{ $s['title'] }}
                                 @if (! empty($s['featured']))<em class="badge">{{ __('الأساسية') }}</em>@endif
+                                @if (! empty($s['soon']))<em class="badge badge--soon">{{ __('قريباً') }}</em>@endif
                             </a>
                         @endforeach
                     </div>

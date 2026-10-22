@@ -18,7 +18,7 @@ class BookingController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'phone' => ['required', 'string', 'max:20', 'regex:/^[0-9+\s\-()]{8,20}$/'],
-            'service' => ['required', Rule::in(array_keys(config('site.services')))],
+            'service' => ['required', Rule::in(array_keys(array_filter(config('site.services'), fn ($s) => empty($s['soon']))))],
             'city' => ['required', Rule::in(array_keys(config('site.cities')))],
             'notes' => ['nullable', 'string', 'max:500'],
             'website' => ['prohibited'], // honeypot

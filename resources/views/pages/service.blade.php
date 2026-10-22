@@ -42,9 +42,15 @@
                 </ul>
             </div>
             <div class="card side-card side-card--cta" data-reveal="left" data-delay="120">
-                <h3>{{ __('تحتاج هذه الخدمة؟') }}</h3>
-                <p>{{ __('تواصل معنا الآن واحصل على معاينة مجانية.') }}</p>
-                <a href="#booking" class="btn btn--order btn--block">{{ __('اطلب الخدمة') }}</a>
+                @if (! empty($service['soon']))
+                    <h3><em class="badge badge--soon">{{ __('قريباً') }}</em></h3>
+                    <p>{{ __('هذه الخدمة ستتوفر قريباً. تواصل معنا ليصلك خبر إطلاقها.') }}</p>
+                    <a href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener" class="btn btn--wa btn--block"><x-icon name="whatsapp" :size="20"/> {{ __('واتساب') }}</a>
+                @else
+                    <h3>{{ __('تحتاج هذه الخدمة؟') }}</h3>
+                    <p>{{ __('تواصل معنا الآن واحصل على معاينة مجانية.') }}</p>
+                    <a href="#booking" class="btn btn--order btn--block">{{ __('اطلب الخدمة') }}</a>
+                @endif
                 <a href="tel:{{ config('site.phone') }}" class="btn btn--ghost btn--block"><x-icon name="phone" :size="18"/> <span dir="ltr">{{ config('site.phone_display') }}</span></a>
             </div>
         </aside>
@@ -55,5 +61,5 @@
     @include('partials.offer')
 @endif
 
-@include('partials.booking', ['selectedService' => $slug])
+@include('partials.booking', ['selectedService' => empty($service['soon']) ? $slug : null])
 @endsection

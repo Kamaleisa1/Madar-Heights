@@ -35,6 +35,7 @@
                     <select name="service" required>
                         <option value="" disabled @selected(! old('service', $selectedService ?? null))>{{ __('اختر الخدمة') }}</option>
                         @foreach (config('site.services') as $slug => $s)
+                            @continue(! empty($s['soon']))
                             <option value="{{ $slug }}" @selected(old('service', $selectedService ?? null) === $slug)>{{ $s['title'] }}</option>
                         @endforeach
                     </select>

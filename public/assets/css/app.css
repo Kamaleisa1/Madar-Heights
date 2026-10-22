@@ -886,3 +886,7 @@ section[id] { scroll-margin-top: 140px; }
 .about__card--photo::before { display: none; }
 .about__card--photo strong { text-shadow: 0 2px 12px rgba(0,0,0,.4); }
 @media (max-width: 991px) { .about__card--photo { min-height: 320px; } }
+
+/* "Coming soon" badge */
+.badge--soon { background: #6B7280; color: #fff; }
+.side-card--cta .badge--soon { font-size: 15px; padding: 6px 14px; margin: 0; background: var(--grad-gold); color: #061A44; }

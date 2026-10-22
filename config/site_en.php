@@ -54,26 +54,26 @@ return [
         'upholstery-cleaning' => [
             'title' => 'Upholstery Dry & Deep Cleaning',
             'short' => 'Our core service: upholstery dry cleaning with very little water, plus deep washing that reaches deep into the fibres to remove tough stains, dust and odours — with sanitizing and perfuming.',
-            'body' => 'Dry cleaning means cleaning upholstery with specialised products and machines using very little water, so the fabric dries fast and keeps its colour and feel without shrinking or damage — ideal for delicate fabrics. Deep washing is for upholstery that has collected dust, tough stains and odours: we use injection, extraction and steam machines that reach deep into the fibres and pull dirt out from inside, not just the surface. We choose the right method for each piece, then sanitize against bacteria and dust mites and perfume it so it looks like new. This is our core service and what we are known for.',
+            'body' => 'Dry cleaning means cleaning upholstery with specialised products and machines using very little water, so the fabric dries fast and keeps its colour and feel without shrinking or damage — ideal for delicate fabrics. Deep washing is for upholstery that has collected dust, tough stains and odours: we use injection and extraction machines that reach deep into the fibres and pull dirt out from inside, not just the surface. We choose the right method for each piece, then sanitize against bacteria and dust mites and perfume it so it looks like new. This is our core service and what we are known for.',
             'features' => ['Dry cleaning that protects fabric and colour', 'Deep washing that reaches deep into the fibres', 'Removes tough, old stains and odours', 'Fast drying', 'Sanitizing against bacteria and dust mites', 'Perfuming after washing'],
         ],
         'carpet-curtain-cleaning' => [
-            'title' => 'Carpet, Rug & Curtain Cleaning',
+            'title' => 'Carpet, Rug & Curtain Washing',
             'short' => 'On-site washing of carpets, wall-to-wall carpeting and curtains with modern machines, plus sanitizing and perfuming.',
             'body' => 'We wash all kinds of carpets, rugs, wall-to-wall carpeting and curtains at your place with modern machines, removing stains and dust trapped deep in the fibres. We then sanitize them against bacteria and dust mites and perfume them, while protecting the colours and keeping drying time short.',
             'features' => ['On-site carpet and rug washing', 'All types of curtains', 'Deep dust extraction', 'Stain and odour removal', 'Sanitizing against mites and bacteria', 'Perfuming and colour protection'],
         ],
         'sofa-majlis-cleaning' => [
             'title' => 'Sofa & Majlis Cleaning',
-            'short' => 'Steam washing of sofas and Arabic majlis seating in every fabric and leather, with stain removal, sanitizing and perfuming.',
-            'body' => 'We wash all kinds of sofas (fabric, velvet, natural and faux leather) and Arabic majlis seating with professional steam and extraction machines and products made for each material. We remove stains, odours and bacteria without harming the fabric, then sanitize and perfume so it is ready for your guests.',
-            'features' => ['Hot steam washing', 'Products suited to every fabric', 'Leather cleaning and conditioning', 'Tough stain and odour removal', 'Sanitizing against bacteria and mites', 'Perfuming after washing'],
+            'short' => 'Washing sofas and Arabic majlis seating in every fabric and leather, with stain removal, sanitizing and perfuming.',
+            'body' => 'We wash all kinds of sofas (fabric, velvet, natural and faux leather) and Arabic majlis seating with professional washing and extraction machines and products made for each material. We remove stains, odours and bacteria without harming the fabric, then sanitize and perfume so it is ready for your guests.',
+            'features' => ['Deep washing with professional machines', 'Products suited to every fabric', 'Leather cleaning and conditioning', 'Tough stain and odour removal', 'Sanitizing against bacteria and mites', 'Perfuming after washing'],
         ],
         'mattress-cleaning' => [
             'title' => 'Mattress Cleaning',
-            'short' => 'Washing and sanitizing mattresses from stains, sweat, dust mites and bed bugs, with perfuming for healthy sleep.',
-            'body' => 'Over time a mattress collects sweat, dust and mites and can trigger allergies. We wash mattresses with steam and deep extraction, remove stains and odours, then sanitize them against bacteria, mites and bed bugs and perfume them for healthy, comfortable sleep.',
-            'features' => ['Steam and deep extraction', 'Removes stains, sweat and odours', 'Eliminates dust mites and bed bugs', 'Sanitizing against bacteria', 'Perfuming after washing', 'Fast drying'],
+            'short' => 'Washing and removing stains and odours, with perfuming and sanitizing.',
+            'body' => 'Washing and removing stains and odours, with perfuming and sanitizing.',
+            'features' => ['Washing', 'Stain removal', 'Odour removal', 'Perfuming', 'Sanitizing'],
         ],
         'ac-cleaning' => [
             'title' => 'AC Cleaning',
@@ -125,9 +125,15 @@ return [
         ],
         'mosque-cleaning' => [
             'title' => 'Mosque Services',
-            'short' => 'Washing mosque carpets and cushions and cleaning restrooms, with sanitizing and perfuming.',
-            'body' => 'We serve the houses of Allah with special care: washing mosque carpets and cushions on site with modern machines, cleaning and sanitizing restrooms and ablution areas, then perfuming the mosque so it is ready to welcome worshippers.',
-            'features' => ['On-site mosque carpet washing', 'Cushion washing', 'Restroom cleaning', 'Ablution area cleaning', 'Mosque sanitizing', 'Perfuming after cleaning'],
+            'short' => 'Washing mosque carpets and cushions and cleaning bathrooms, with sanitizing and perfuming.',
+            'body' => 'We serve the houses of Allah with special care: washing mosque carpets and cushions on site with modern machines, cleaning and sanitizing bathrooms and ablution areas, then perfuming the mosque so it is ready to welcome worshippers.',
+            'features' => ['On-site mosque carpet washing', 'Cushion washing', 'Bathroom cleaning', 'Ablution area cleaning', 'Mosque sanitizing', 'Perfuming after cleaning'],
+        ],
+        'car-wash' => [
+            'title' => 'Car Wash',
+            'short' => 'Deep dry cleaning of car seats and removing tough stains, polishing the car interior, tyre shine, and protective wax after washing to keep the body from fading.',
+            'body' => 'Coming soon: deep dry cleaning of car seats and removing tough stains, polishing the car interior, tyre shine, and protective wax after washing to keep the body from fading.',
+            'features' => ['Deep dry cleaning of car seats', 'Tough stain removal', 'Interior polishing', 'Tyre shine', 'Protective wax after washing', 'Keeps the body from fading'],
         ],
     ],
 
@@ -162,7 +168,6 @@ return [
     ],
 
     'testimonials' => [
-        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Wonderful service, classy manners and punctual. Thank you.'],
         ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Mashallah, thank you for the service — truly clean! You brought my sofa back like new. I dealt with two other companies before you and, sadly, none matched your cleaning or your prices.'],
         ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'My regards to you, may Allah reward you for your service. Cleaning rating: excellent 👍'],
         ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Tabarak Allah, thank you for your honesty — everything you promised about cleanliness and trustworthiness was true. Thank you from the heart; my rating is excellent and well deserved, and I am very, very satisfied.'],
