@@ -16,6 +16,12 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
+    | Setup key for the web installer at /install (creates the database tables,
+    | copies the site content and the first admin account, no SSH needed).
+    */
+    'install_key' => env('INSTALL_KEY'),
+
+    /*
     |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------

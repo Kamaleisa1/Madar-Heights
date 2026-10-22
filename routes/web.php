@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\InstallController;
 use App\Http\Controllers\SiteController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,8 @@ foreach (['ar' => '', 'en' => 'en'] as $locale => $prefix) {
 }
 
 Route::get('/sitemap.xml', [SiteController::class, 'sitemap'])->name('sitemap');
+
+// Web installer / database updater (no SSH needed on shared hosting)
+Route::get('/install', [InstallController::class, 'show']);
+Route::post('/install', [InstallController::class, 'setup'])->middleware('throttle:10,1');
+Route::post('/install/update', [InstallController::class, 'update'])->middleware('throttle:10,1');
