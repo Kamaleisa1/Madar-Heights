@@ -13,15 +13,15 @@
                 {!! __(':name شركة متخصصة في <strong>الغسيل الجاف والعميق للمفروشات</strong>، وتنظيف السجاد والكنب والستائر والمجالس، وغسيل المكيفات، وتنظيف الشقق والفلل والقصور والمكاتب والخزانات والمسابح، ومكافحة الحشرات. نعمل بعمالة مدربة وماهرة وأحدث المعدات ومواد آمنة ومعتمدة، لنقدم لك نتيجة تليق ببيتك أو منشأتك في :cities.', ['name' => e(config('site.name')), 'cities' => e(cities_list())]) !!}
             </p>
             <ul class="checklist checklist--2">
-                <li><x-icon name="check" :size="18"/> {{ __('عمالة مدربة وذات مهارة عالية') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('معاينة وتسعير مجاني') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('مواد آمنة ومعتمدة') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('ضمان على الخدمة') }}</li>
+                <li><x-mh-icon name="check" :size="18"/> {{ __('عمالة مدربة وذات مهارة عالية') }}</li>
+                <li><x-mh-icon name="check" :size="18"/> {{ __('معاينة وتسعير مجاني') }}</li>
+                <li><x-mh-icon name="check" :size="18"/> {{ __('مواد آمنة ومعتمدة') }}</li>
+                <li><x-mh-icon name="check" :size="18"/> {{ __('ضمان على الخدمة') }}</li>
             </ul>
             <a href="{{ lroute('about') }}" class="btn btn--primary">{{ __('اعرف أكثر عنا') }}</a>
         </div>
         <div class="about__visual" data-reveal="left">
-            <div class="about__card about__card--main about__card--photo" style="--photo: url('{{ asset('assets/img/about-photo.jpg') }}')">
+            <div class="about__card about__card--main about__card--photo" style="--photo: url('{{ asset(config('site.about_photo')) }}')">
                 <strong>{{ __('نظافة بمعايير عالية') }}</strong>
                 <span>{{ __('منذ سنوات ونحن نخدم بيوت وشركات المنطقة الشرقية') }}</span>
             </div>
@@ -45,11 +45,11 @@
 
     <div class="container hero__grid">
         <div class="hero__content">
-            <span class="eyebrow eyebrow--pill" data-reveal><x-icon name="sparkle" :size="16"/> {{ __('الخيار الأول للنظافة في المنطقة الشرقية') }}</span>
+            <span class="eyebrow eyebrow--pill" data-reveal><x-mh-icon name="sparkle" :size="16"/> {{ __('الخيار الأول للنظافة في المنطقة الشرقية') }}</span>
             <h1 class="hero__title" data-reveal data-delay="100">
                 {{ config('site.name') }}
                 <span class="hero__rotator">
-                    @php($words = is_en() ? ['Upholstery dry & deep cleaning', 'Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'] : ['غسيل جاف وعميق للمفروشات', 'غسيل الكنب والمجالس', 'تنظيف السجاد والستائر', 'غسيل المكيفات', 'تنظيف الشقق والفلل', 'مكافحة الحشرات'])
+                    @php($words = config('site.hero_words'))
                     <span class="typed grad" data-words='@json($words, JSON_UNESCAPED_UNICODE)'>{{ $words[0] }}</span><span class="caret"></span>
                 </span>
             </h1>
@@ -59,13 +59,13 @@
             </p>
             <div class="hero__actions" data-reveal data-delay="300">
                 <a href="#booking" class="btn btn--order btn--lg">{{ __('اطلب الخدمة') }}</a>
-                <a href="https://wa.me/{{ config('site.whatsapp') }}?text={{ rawurlencode(config('site.whatsapp_message')) }}" target="_blank" rel="noopener" class="btn btn--wa btn--lg"><x-icon name="whatsapp" :size="20"/> {{ __('واتساب') }}</a>
-                <a href="tel:{{ config('site.phone') }}" class="btn btn--ghost btn--lg"><x-icon name="phone" :size="18"/> <span dir="ltr">{{ config('site.phone_display') }}</span></a>
+                <a href="https://wa.me/{{ config('site.whatsapp') }}?text={{ rawurlencode(config('site.whatsapp_message')) }}" target="_blank" rel="noopener" class="btn btn--wa btn--lg"><x-mh-icon name="whatsapp" :size="20"/> {{ __('واتساب') }}</a>
+                <a href="tel:{{ config('site.phone') }}" class="btn btn--ghost btn--lg"><x-mh-icon name="phone" :size="18"/> <span dir="ltr">{{ config('site.phone_display') }}</span></a>
             </div>
             <div class="hero__trust" data-reveal data-delay="400">
                 <div class="avatars">@if (is_en())<span>M</span><span>H</span><span>S</span>@else<span>م</span><span>ع</span><span>س</span>@endif<span>+</span></div>
                 <div>
-                    <div class="stars">@for ($i = 0; $i < 5; $i++)<x-icon name="star" :size="16"/>@endfor</div>
+                    <div class="stars">@for ($i = 0; $i < 5; $i++)<x-mh-icon name="star" :size="16"/>@endfor</div>
                     <small>{{ __('أكثر من 5000 عميل يثقون بنا') }}</small>
                 </div>
             </div>
@@ -73,23 +73,23 @@
 
         <div class="hero__visual" data-reveal="zoom" data-delay="200">
             <div class="orbit">
-                <div class="orbit__ring orbit__ring--1"><span class="orbit__sat"><x-icon name="sofa" :size="22"/></span></div>
-                <div class="orbit__ring orbit__ring--2"><span class="orbit__sat"><x-icon name="ac" :size="22"/></span></div>
-                <div class="orbit__ring orbit__ring--3"><span class="orbit__sat"><x-icon name="bug" :size="22"/></span></div>
+                <div class="orbit__ring orbit__ring--1"><span class="orbit__sat"><x-mh-icon name="sofa" :size="22"/></span></div>
+                <div class="orbit__ring orbit__ring--2"><span class="orbit__sat"><x-mh-icon name="ac" :size="22"/></span></div>
+                <div class="orbit__ring orbit__ring--3"><span class="orbit__sat"><x-mh-icon name="bug" :size="22"/></span></div>
                 <div class="orbit__core">
                     @include('partials.logo', ['alt' => config('site.name'), 'eager' => true])
                 </div>
             </div>
             <div class="float-card float-card--1">
-                <span class="float-card__ico"><x-icon name="sofa" :size="22"/></span>
+                <span class="float-card__ico"><x-mh-icon name="sofa" :size="22"/></span>
                 <span><strong>{{ __('غسيل جاف وعميق للمفروشات') }}</strong><small>{{ __('غسيل عميق وتعقيم وتعطير') }}</small></span>
             </div>
             <div class="float-card float-card--2">
-                <span class="float-card__ico"><x-icon name="shield" :size="22"/></span>
+                <span class="float-card__ico"><x-mh-icon name="shield" :size="22"/></span>
                 <span><strong>{{ __('ضمان الجودة') }}</strong><small>{{ __('نضمن لك جودة العمل') }}</small></span>
             </div>
             <div class="float-card float-card--3">
-                <span class="float-card__ico"><x-icon name="clock" :size="22"/></span>
+                <span class="float-card__ico"><x-mh-icon name="clock" :size="22"/></span>
                 <span><strong>{{ __('خدمة سريعة') }}</strong><small>{{ __('في نفس اليوم') }}</small></span>
             </div>
         </div>
@@ -103,7 +103,7 @@
     <div class="marquee__track">
         @for ($r = 0; $r < 2; $r++)
             @foreach (config('site.services') as $s)
-                <span><x-icon :name="$s['icon']" :size="20"/> {{ $s['title'] }}</span>
+                <span><x-mh-icon :name="$s['icon']" :size="20"/> {{ $s['title'] }}</span>
             @endforeach
         @endfor
     </div>
@@ -143,7 +143,7 @@
         <div class="why-grid">
             @foreach (config('site.why') as $w)
                 <div class="why-item" data-reveal data-delay="{{ $loop->index % 3 * 100 }}">
-                    <span class="why-item__icon"><x-icon :name="$w['icon']" :size="28"/></span>
+                    <span class="why-item__icon"><x-mh-icon :name="$w['icon']" :size="28"/></span>
                     <div>
                         <h3>{{ $w['title'] }}</h3>
                         <p>{{ $w['text'] }}</p>
@@ -183,7 +183,7 @@
         <div class="areas__grid">
             @foreach (config('site.cities') as $slug => $c)
                 <a href="{{ lroute('area', $slug) }}" class="area-card" data-reveal="zoom" data-delay="{{ $loop->index * 90 }}">
-                    <span class="area-card__pin"><x-icon name="map" :size="26"/></span>
+                    <span class="area-card__pin"><x-mh-icon name="map" :size="26"/></span>
                     <strong>{{ $c['name'] }}</strong>
                     <small>{{ __(':count+ أحياء ومناطق', ['count' => count($c['districts'])]) }}</small>
                 </a>
@@ -203,11 +203,11 @@
             <div class="slider__track">
                 @foreach (config('site.testimonials') as $t)
                     <figure class="testi">
-                        <x-icon name="quote" :size="34" class="testi__quote"/>
-                        <div class="stars">@for ($i = 0; $i < 5; $i++)<x-icon name="star" :size="16"/>@endfor</div>
+                        <x-mh-icon name="quote" :size="34" class="testi__quote"/>
+                        <div class="stars">@for ($i = 0; $i < 5; $i++)<x-mh-icon name="star" :size="16"/>@endfor</div>
                         <blockquote>{{ $t['text'] }}</blockquote>
                         <figcaption>
-                            <span class="testi__avatar"><x-icon name="whatsapp" :size="24"/></span>
+                            <span class="testi__avatar"><x-mh-icon name="whatsapp" :size="24"/></span>
                             <span><strong>{{ $t['name'] }}</strong><small>{{ $t['source'] }}</small></span>
                         </figcaption>
                     </figure>
@@ -237,12 +237,12 @@
             <span class="eyebrow">{{ __('الأسئلة الشائعة') }}</span>
             <h2 class="section-title">{!! __('عندك <span class="grad">سؤال</span>؟') !!}</h2>
             <p>{{ __('جمعنا لك أكثر الأسئلة تكراراً. لم تجد إجابتك؟ تواصل معنا مباشرة.') }}</p>
-            <a href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener" class="btn btn--wa"><x-icon name="whatsapp" :size="20"/> {{ __('اسألنا على واتساب') }}</a>
+            <a href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener" class="btn btn--wa"><x-mh-icon name="whatsapp" :size="20"/> {{ __('اسألنا على واتساب') }}</a>
         </div>
         <div class="accordion" data-reveal="left">
             @foreach (config('site.faq') as $f)
                 <details class="acc" @if ($loop->first) open @endif>
-                    <summary>{{ $f['q'] }} <x-icon name="chevron" :size="18"/></summary>
+                    <summary>{{ $f['q'] }} <x-mh-icon name="chevron" :size="18"/></summary>
                     <div class="acc__body"><p>{{ $f['a'] }}</p></div>
                 </details>
             @endforeach

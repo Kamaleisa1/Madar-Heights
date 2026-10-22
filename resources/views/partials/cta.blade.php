@@ -6,7 +6,7 @@
         </div>
         <div class="cta-band__actions">
             <a href="{{ lroute('home') }}#booking" class="btn btn--order btn--lg">{{ __('اطلب الخدمة') }}</a>
-            <a href="https://wa.me/{{ config('site.whatsapp') }}?text={{ rawurlencode(config('site.whatsapp_message')) }}" target="_blank" rel="noopener" class="btn btn--wa btn--lg"><x-icon name="whatsapp" :size="20"/> {{ __('واتساب') }}</a>
+            <a href="https://wa.me/{{ config('site.whatsapp') }}?text={{ rawurlencode(config('site.whatsapp_message')) }}" target="_blank" rel="noopener" class="btn btn--wa btn--lg"><x-mh-icon name="whatsapp" :size="20"/> {{ __('واتساب') }}</a>
         </div>
     </div>
 </section>

@@ -34,13 +34,13 @@
         <div>
             <h4>{{ __('تواصل معنا') }}</h4>
             <ul class="footer__contact">
-                <li><x-icon name="phone" :size="18"/> <a href="tel:{{ config('site.phone') }}" dir="ltr">{{ config('site.phone_display') }}</a></li>
-                <li><x-icon name="whatsapp" :size="18"/> <a href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener">{{ __('راسلنا على واتساب') }}</a></li>
+                <li><x-mh-icon name="phone" :size="18"/> <a href="tel:{{ config('site.phone') }}" dir="ltr">{{ config('site.phone_display') }}</a></li>
+                <li><x-mh-icon name="whatsapp" :size="18"/> <a href="https://wa.me/{{ config('site.whatsapp') }}" target="_blank" rel="noopener">{{ __('راسلنا على واتساب') }}</a></li>
                 @if (config('site.email'))
-                    <li><x-icon name="mail" :size="18"/> <a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></li>
+                    <li><x-mh-icon name="mail" :size="18"/> <a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></li>
                 @endif
-                <li><x-icon name="clock" :size="18"/> {{ config('site.working_hours') }}</li>
-                <li><x-icon name="map" :size="18"/> {{ __('المنطقة الشرقية - المملكة العربية السعودية') }}</li>
+                <li><x-mh-icon name="clock" :size="18"/> {{ config('site.working_hours') }}</li>
+                <li><x-mh-icon name="map" :size="18"/> {{ __('المنطقة الشرقية - المملكة العربية السعودية') }}</li>
             </ul>
             <a href="{{ lroute('home') }}#booking" class="btn btn--order btn--block">{{ __('اطلب الخدمة') }}</a>
         </div>

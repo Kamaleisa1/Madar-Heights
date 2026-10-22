@@ -9,7 +9,7 @@
 <section class="section">
     <div class="container detail">
         <article class="detail__main prose">
-            <time datetime="{{ $post['date'] }}" class="muted"><x-icon name="calendar" :size="15"/> {{ \Illuminate\Support\Carbon::parse($post['date'])->locale(app()->getLocale())->translatedFormat('j F Y') }}</time>
+            <time datetime="{{ $post['date'] }}" class="muted"><x-mh-icon name="calendar" :size="15"/> {{ \Illuminate\Support\Carbon::parse($post['date'])->locale(app()->getLocale())->translatedFormat('j F Y') }}</time>
             @foreach ($post['body'] as $para)
                 <p data-reveal>{{ $para }}</p>
             @endforeach

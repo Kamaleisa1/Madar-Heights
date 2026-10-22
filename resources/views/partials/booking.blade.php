@@ -5,12 +5,12 @@
             <h2 class="section-title">{!! __('اطلب خدمتك في <span class="grad">أقل من دقيقة</span>') !!}</h2>
             <p>{{ __('املأ النموذج وسيتم تحويلك مباشرة إلى واتساب برسالة جاهزة، وسيتواصل معك فريق :name لتأكيد الموعد والسعر.', ['name' => config('site.name')]) }}</p>
             <ul class="checklist">
-                <li><x-icon name="check" :size="18"/> {{ __('معاينة وتسعير مجاني') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('فريق يصلك في نفس اليوم') }}</li>
-                <li><x-icon name="check" :size="18"/> {{ __('ضمان على جودة الخدمة') }}</li>
+                <li><x-mh-icon name="check" :size="18"/> {{ __('معاينة وتسعير مجاني') }}</li>
+                <li><x-mh-icon name="check" :size="18"/> {{ __('فريق يصلك في نفس اليوم') }}</li>
+                <li><x-mh-icon name="check" :size="18"/> {{ __('ضمان على جودة الخدمة') }}</li>
             </ul>
             <a href="tel:{{ config('site.phone') }}" class="booking__phone">
-                <span class="booking__phone-ico"><x-icon name="phone" :size="22"/></span>
+                <span class="booking__phone-ico"><x-mh-icon name="phone" :size="22"/></span>
                 <span><small>{{ __('أو اتصل مباشرة') }}</small><strong dir="ltr">{{ config('site.phone_display') }}</strong></span>
             </a>
         </div>
@@ -58,7 +58,7 @@
             </label>
             <label class="hp" aria-hidden="true">Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
             <button type="submit" class="btn btn--order btn--lg btn--block">
-                <x-icon name="whatsapp" :size="22"/> {{ __('اطلب الخدمة') }}
+                <x-mh-icon name="whatsapp" :size="22"/> {{ __('اطلب الخدمة') }}
             </button>
         </form>
     </div>

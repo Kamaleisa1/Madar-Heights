@@ -17,6 +17,8 @@ return [
     'whatsapp_message' => 'Hello, I would like to book a service with Madar Heights',
     'working_hours' => 'Daily 8 AM – 10 PM, except Friday',
 
+    'hero_words' => ['Upholstery dry & deep cleaning', 'Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'],
+
     'cities' => [
         'dammam' => [
             'name' => 'Dammam',

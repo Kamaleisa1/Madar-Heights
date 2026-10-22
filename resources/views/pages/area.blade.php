@@ -28,7 +28,7 @@
         ])
         <div class="chips chips--center" data-reveal>
             @foreach ($city['districts'] as $d)
-                <span class="chip"><x-icon name="map" :size="15"/> {{ $d }}</span>
+                <span class="chip"><x-mh-icon name="map" :size="15"/> {{ $d }}</span>
             @endforeach
         </div>
         <div class="chips chips--center mt" data-reveal>

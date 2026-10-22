@@ -12,10 +12,12 @@ if (! function_exists('set_site_locale')) {
         app()->setLocale($locale);
         \Illuminate\Support\Carbon::setLocale($locale);
 
-        if ($locale === 'en' && ! config('site._en')) {
-            // English text replaces the Arabic text; everything else stays shared
-            config(['site' => array_replace_recursive(config('site'), config('site_en'), ['_en' => true])]);
+        // Keep the original file content once, then build the page content for this
+        // language: dashboard (database) first, config files as the fallback.
+        if (! config('site_defaults')) {
+            config(['site_defaults' => config('site')]);
         }
+        config(['site' => \App\Support\SiteContent::build($locale)]);
     }
 }
 

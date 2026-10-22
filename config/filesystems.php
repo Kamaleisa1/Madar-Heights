@@ -38,6 +38,16 @@ return [
             'report' => false,
         ],
 
+        // Images uploaded from the dashboard: stored inside public/ (public/uploads/...)
+        // so they work on shared hosting without a storage symlink.
+        'site' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => rtrim(env('APP_URL', ''), '/'),
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

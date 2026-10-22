@@ -10,7 +10,7 @@
                 @else
                     {{-- Designed fallback until the offer image is uploaded --}}
                     <span class="offer__badge">{{ $offer['badge'] }}</span>
-                    <span class="offer__icon"><x-icon :name="$svc['icon']" :size="90"/></span>
+                    <span class="offer__icon"><x-mh-icon :name="$svc['icon']" :size="90"/></span>
                     <span class="offer__body">
                         <small>{{ $svc['title'] }}</small>
                         <strong>{{ $offer['title'] }}</strong>
