@@ -169,9 +169,13 @@ return [
 
     'testimonials' => [
         ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Mashallah, thank you for the service — truly clean! You brought my sofa back like new. I dealt with two other companies before you and, sadly, none matched your cleaning or your prices.'],
-        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'My regards to you, may Allah reward you for your service. Cleaning rating: excellent 👍'],
+        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Thank you for a more-than-wonderful service. It\'s the first time and, God willing, not the last time we deal with you. Your workers deserve thanks — honestly very thorough cleaning and a great attitude. Lovely work, may God bless them and you 👌'],
+        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Mashallah, may God reward you. I prefer your company — the cleanliness, the lovely scent, and you arrive right on time. I\'ve been your client for a long time; you never fall short.'],
+        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'In all honesty: the carpet came back like new, which I didn\'t expect. The first, but not the last, time God willing. Thank you from the bottom of my heart.'],
+        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'May God make you happy and reward you — honestly, their work was very satisfying. May God bless and guide you.'],
+        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'A thousand thanks — bless you for the quick response and getting straight to work. Wishing you success and blessings 🌺'],
         ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Tabarak Allah, thank you for your honesty — everything you promised about cleanliness and trustworthiness was true. Thank you from the heart; my rating is excellent and well deserved, and I am very, very satisfied.'],
-        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'Bless you — a truly great offer that came at the right time. You deserve creativity and excellence 🌷'],
+        ['name' => 'Madar Heights client', 'source' => 'via WhatsApp · translated from Arabic', 'text' => 'My regards to you, may Allah reward you for your service. Cleaning rating: excellent 👍'],
     ],
 
     'faq' => [
