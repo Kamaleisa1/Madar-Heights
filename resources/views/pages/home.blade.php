@@ -10,7 +10,7 @@
             <span class="eyebrow">{{ __('من نحن') }}</span>
             <h2 class="section-title">{{ config('site.name') }}… {!! __('<span class="grad">مدار من النظافة</span> يحيط ببيتك') !!}</h2>
             <p>
-                {!! __(':name شركة متخصصة في <strong>الغسيل الجاف والعميق للمفروشات</strong>، وتنظيف السجاد والكنب والستائر والمجالس، وغسيل المكيفات، وتنظيف الشقق والفلل والقصور والمكاتب والخزانات والمسابح، ومكافحة الحشرات. نعمل بعمالة مدربة وماهرة وأحدث المعدات ومواد آمنة ومعتمدة، لنقدم لك نتيجة تليق ببيتك أو منشأتك في :cities.', ['name' => e(config('site.name')), 'cities' => e(cities_list())]) !!}
+                {!! __(':name شركة متخصصة في <strong>غسيل السجاد والكنب والستائر والمجالس</strong>، وغسيل المكيفات، وتنظيف الشقق والفلل والقصور والمكاتب والخزانات والمسابح، ومكافحة الحشرات. نعمل بعمالة مدربة وماهرة وأحدث المعدات ومواد آمنة ومعتمدة، لنقدم لك نتيجة تليق ببيتك أو منشأتك في :cities.', ['name' => e(config('site.name')), 'cities' => e(cities_list())]) !!}
             </p>
             <ul class="checklist checklist--2">
                 <li><x-mh-icon name="check" :size="18"/> {{ __('عمالة مدربة وذات مهارة عالية') }}</li>
@@ -54,7 +54,7 @@
                 </span>
             </h1>
             <p class="hero__lead" data-reveal data-delay="200">
-                {{ __('غسيل جاف وعميق للمفروشات ونظافة متقنة بلمسة احترافية. فريق مدرب، معدات حديثة، ومواد آمنة… وكل ذلك بضمان.') }}
+                {{ __('نظافة متقنة بلمسة احترافية. فريق مدرب، معدات حديثة، ومواد آمنة… وكل ذلك بضمان.') }}
                 @include('partials.city-pins')
             </p>
             <div class="hero__actions" data-reveal data-delay="300">
@@ -82,7 +82,7 @@
             </div>
             <div class="float-card float-card--1">
                 <span class="float-card__ico"><x-mh-icon name="sofa" :size="22"/></span>
-                <span><strong>{{ __('غسيل جاف وعميق للمفروشات') }}</strong><small>{{ __('غسيل عميق وتعقيم وتعطير') }}</small></span>
+                <span><strong>{{ __('غسيل الكنب والمجالس') }}</strong><small>{{ __('غسيل وتعقيم وتعطير') }}</small></span>
             </div>
             <div class="float-card float-card--2">
                 <span class="float-card__ico"><x-mh-icon name="shield" :size="22"/></span>
@@ -120,7 +120,7 @@
         @include('partials.section-head', [
             'eyebrow' => __('خدماتنا'),
             'title' => __('كل ما يحتاجه بيتك <span class="grad">في مكان واحد</span>'),
-            'text' => __('خدمتنا الأساسية الغسيل الجاف والعميق للمفروشات، ومعها كل خدمات النظافة التي يحتاجها بيتك ومنشأتك.'),
+            'text' => __('كل خدمات النظافة التي يحتاجها بيتك ومنشأتك، بفريق مدرب ومعدات حديثة.'),
         ])
         <div class="svc-grid">
             @foreach (config('site.services') as $slug => $s)

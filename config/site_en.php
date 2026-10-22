@@ -13,11 +13,11 @@ return [
 
     'name' => 'Madar Heights',
     'tagline' => 'Cleaning & Maintenance',
-    'description' => 'Madar Heights Cleaning & Maintenance: upholstery dry and deep cleaning, carpet, sofa, curtain and majlis cleaning, AC cleaning, apartment, villa, tank and pool cleaning, and pest control in Dammam, Khobar, Qatif, Saihat, Al-Ahsa and Jubail.',
+    'description' => 'Madar Heights Cleaning & Maintenance: carpet, sofa, curtain and majlis cleaning, AC cleaning, apartment, villa, tank and pool cleaning, and pest control in Dammam, Khobar, Qatif, Saihat, Al-Ahsa and Jubail.',
     'whatsapp_message' => 'Hello, I would like to book a service with Madar Heights',
     'working_hours' => 'Daily 8 AM – 10 PM, except Friday',
 
-    'hero_words' => ['Upholstery dry & deep cleaning', 'Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'],
+    'hero_words' => ['Sofa & majlis cleaning', 'Carpet & curtain cleaning', 'AC cleaning', 'Apartment & villa cleaning', 'Pest control'],
 
     'cities' => [
         'dammam' => [
@@ -32,33 +32,27 @@ return [
         ],
         'qatif' => [
             'name' => 'Qatif',
-            'intro' => 'Upholstery washing, cleaning, tank washing and pest control in Qatif and nearby areas: Al Qudaih, Al Awamiyah, Tarout, Safwa, Al Jish and Umm Al Hamam.',
+            'intro' => 'Carpet and sofa washing, cleaning, tank washing and pest control in Qatif and nearby areas: Al Qudaih, Al Awamiyah, Tarout, Safwa, Al Jish and Umm Al Hamam.',
             'districts' => ['Al Qudaih', 'Al Awamiyah', 'Tarout', 'Safwa', 'Al Jish', 'Umm Al Hamam', 'An Nasirah', 'Al Bahari'],
         ],
         'saihat' => [
             'name' => 'Saihat',
-            'intro' => 'The Madar Heights team in Saihat is ready to wash your upholstery, clean your home or villa, and wash your tanks and ACs at fair prices with guaranteed quality.',
+            'intro' => 'The Madar Heights team in Saihat is ready to wash your carpets and sofas, clean your home or villa, and wash your tanks and ACs at fair prices with guaranteed quality.',
             'districts' => ['Al Kawthar', 'An Noor', 'Al Faisaliyah', 'Al Khassab', 'Al Muhit', 'Al Ghadeer'],
         ],
         'ahsa' => [
             'name' => 'Al-Ahsa',
-            'intro' => 'We serve Hofuf, Mubarraz and all Al-Ahsa villages with upholstery washing, full cleaning, pest control and tank sanitizing.',
+            'intro' => 'We serve Hofuf, Mubarraz and all Al-Ahsa villages with carpet and sofa washing, full cleaning, pest control and tank sanitizing.',
             'districts' => ['Hofuf', 'Mubarraz', 'Al Uyun', 'Al Jafr', 'At Taraf', 'Al Omran', 'Al Munaizlah', 'Al Qarah'],
         ],
         'jubail' => [
             'name' => 'Jubail',
-            'intro' => 'Complete services in Jubail City and Jubail Industrial: upholstery washing, home and office cleaning, AC and tank washing, and pest control.',
+            'intro' => 'Complete services in Jubail City and Jubail Industrial: carpet and sofa washing, home and office cleaning, AC and tank washing, and pest control.',
             'districts' => ['Jubail City', 'Jubail Industrial', 'Al Fanateer', 'Ad Dafi', 'Al Huwailat', 'Jalmudah', 'Al Andalus', 'Second Industrial'],
         ],
     ],
 
     'services' => [
-        'upholstery-cleaning' => [
-            'title' => 'Upholstery Dry & Deep Cleaning',
-            'short' => 'Our core service: upholstery dry cleaning with very little water, plus deep washing that reaches deep into the fibres to remove tough stains, dust and odours — with sanitizing and perfuming.',
-            'body' => 'Dry cleaning means cleaning upholstery with specialised products and machines using very little water, so the fabric dries fast and keeps its colour and feel without shrinking or damage — ideal for delicate fabrics. Deep washing is for upholstery that has collected dust, tough stains and odours: we use injection and extraction machines that reach deep into the fibres and pull dirt out from inside, not just the surface. We choose the right method for each piece, then sanitize against bacteria and dust mites and perfume it so it looks like new. This is our core service and what we are known for.',
-            'features' => ['Dry cleaning that protects fabric and colour', 'Deep washing that reaches deep into the fibres', 'Removes tough, old stains and odours', 'Fast drying', 'Sanitizing against bacteria and dust mites', 'Perfuming after washing'],
-        ],
         'carpet-curtain-cleaning' => [
             'title' => 'Carpet, Rug & Curtain Washing',
             'short' => 'On-site washing of carpets, wall-to-wall carpeting and curtains with modern machines, plus sanitizing and perfuming.',
@@ -140,9 +134,9 @@ return [
     ],
 
     'offer' => [
-        'image' => 'assets/img/offer-en.jpg',
-        'title' => 'Special offer on upholstery cleaning',
-        'text' => 'Book now and enjoy a special discount on upholstery dry and deep cleaning.',
+        'image' => null,
+        'title' => 'Special offer on sofa & majlis cleaning',
+        'text' => 'Book now and enjoy a special discount.',
         'badge' => 'Special discount',
     ],
 
@@ -166,7 +160,7 @@ return [
         ['title' => 'Contact us', 'text' => 'Call us, message us on WhatsApp or fill in the booking form.'],
         ['title' => 'Set the date', 'text' => 'We agree on the service, price and a time that suits you.'],
         ['title' => 'We do the job', 'text' => 'Our team arrives with the equipment and works professionally.'],
-        ['title' => 'Enjoy the result', 'text' => 'A clean, sanitized, fresh-smelling space and upholstery that looks new.'],
+        ['title' => 'Enjoy the result', 'text' => 'A clean, sanitized, fresh-smelling space, with sofas and carpets that look new.'],
     ],
 
     'testimonials' => [
@@ -182,7 +176,6 @@ return [
 
     'faq' => [
         ['q' => 'Which cities do you cover?', 'a' => 'We serve Dammam, Khobar, Qatif, Saihat, Al-Ahsa, Jubail and surrounding areas.'],
-        ['q' => 'What is upholstery dry cleaning?', 'a' => 'It is cleaning upholstery with specialised products and machines using very little water, so it dries fast and keeps its colour and feel. We complete it with deep washing that removes stains and dust from deep in the fibres.'],
         ['q' => 'How often should a water tank be cleaned?', 'a' => 'We recommend washing and sanitizing underground and rooftop tanks at least every 6 months to keep the water clean.'],
         ['q' => 'Are your pesticides safe for children?', 'a' => 'Yes. We use approved, safe pesticides and explain the precautions to follow before and after spraying.'],
         ['q' => 'Do you bring the equipment and cleaning products?', 'a' => 'Yes. Our team arrives with all the equipment and products needed — you don\'t need to prepare anything.'],

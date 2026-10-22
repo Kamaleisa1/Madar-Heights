@@ -71,7 +71,7 @@ class SiteTest extends TestCase
             $this->get($url)->assertOk()->assertSee('lang="en"', false)->assertSee('dir="ltr"', false);
         }
 
-        $this->get('/en/services/upholstery-cleaning')->assertOk()->assertSee('Upholstery Dry &amp; Deep Cleaning', false);
+        $this->get('/en/services/sofa-majlis-cleaning')->assertOk()->assertSee('Sofa &amp; Majlis Cleaning', false);
         $this->get('/en/areas/khobar')->assertOk()->assertSee('Cleaning company in Khobar');
         $this->get('/en/blog/why-ac-cleaning')->assertOk()->assertSee('Why should you clean your AC?');
     }
@@ -124,12 +124,24 @@ class SiteTest extends TestCase
 
     public function test_removed_words_and_old_screenshot_are_gone(): void
     {
-        foreach (['/', '/services', '/services/upholstery-cleaning', '/services/sofa-majlis-cleaning', '/services/mattress-cleaning', '/services/mosque-cleaning'] as $url) {
+        foreach (['/', '/services', '/services/sofa-majlis-cleaning', '/services/mattress-cleaning', '/services/mosque-cleaning'] as $url) {
             $this->get($url)->assertDontSee('بخار')->assertDontSee('مازكلين')->assertDontSee('review-1.jpg')->assertDontSee('دورات المياه');
         }
         foreach (['/en', '/en/services/sofa-majlis-cleaning', '/en/services/mattress-cleaning'] as $url) {
             $this->get($url)->assertDontSee('steam')->assertDontSee('Steam');
         }
         $this->assertFileDoesNotExist(public_path('assets/img/reviews/review-1.jpg'));
+    }
+
+    public function test_upholstery_service_is_gone(): void
+    {
+        $this->get('/services/upholstery-cleaning')->assertNotFound();
+        $this->get('/en/services/upholstery-cleaning')->assertNotFound();
+        foreach (['/', '/services', '/about', '/blog'] as $url) {
+            $this->get($url)->assertDontSee('مفروشات')->assertDontSee('upholstery-cleaning');
+        }
+        foreach (['/en', '/en/services', '/en/about'] as $url) {
+            $this->get($url)->assertDontSee('pholstery');
+        }
     }
 }

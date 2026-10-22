@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', __('شركة تنظيف في :city', ['city' => $city['name']]))
-@section('description', __('مدار هايتس: غسيل مفروشات وتنظيف وغسيل مكيفات وخزانات ومكافحة حشرات في :city.', ['city' => $city['name']]).' '.$city['intro'])
+@section('description', __('مدار هايتس: غسيل السجاد والكنب وتنظيف وغسيل مكيفات وخزانات ومكافحة حشرات في :city.', ['city' => $city['name']]).' '.$city['intro'])
 
 @section('content')
 @include('partials.page-hero', ['title' => __('شركة تنظيف في :city', ['city' => $city['name']]), 'text' => $city['intro']])
