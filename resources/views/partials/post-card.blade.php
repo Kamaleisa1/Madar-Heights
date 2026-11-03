@@ -1,6 +1,10 @@
 <article class="post-card" data-reveal data-delay="{{ $loop->index * 120 }}">
-    <a href="{{ lroute('post', $slug) }}" class="post-card__thumb">
-        <x-mh-icon :name="config('site.services.'.$p['service'].'.icon')" :size="60"/>
+    <a href="{{ lroute('post', $slug) }}" @class(['post-card__thumb', 'post-card__thumb--img' => ! empty($p['image'])])>
+        @if (! empty($p['image']))
+            <img src="{{ asset($p['image']) }}" alt="{{ $p['title'] }}" loading="lazy">
+        @else
+            <x-mh-icon :name="config('site.services.'.$p['service'].'.icon', 'sparkle')" :size="60"/>
+        @endif
     </a>
     <div class="post-card__body">
         <time datetime="{{ $p['date'] }}"><x-mh-icon name="calendar" :size="15"/> {{ \Illuminate\Support\Carbon::parse($p['date'])->locale(app()->getLocale())->translatedFormat('j F Y') }}</time>

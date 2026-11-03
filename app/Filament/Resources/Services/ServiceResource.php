@@ -17,6 +17,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
@@ -43,6 +44,7 @@ class ServiceResource extends Resource
                 Fields::textarea('short', 'وصف قصير (بيظهر في الكارت)', true, 3),
                 Fields::textarea('body', 'الوصف الكامل (صفحة الخدمة)', false, 6),
                 Fields::tags('features', 'ماذا تشمل الخدمة'),
+                Fields::image('image', 'صورة الخدمة (اختياري، بتظهر بدل الأيقونة)', 'services'),
             ]),
             Section::make('الإعدادات')->schema([
                 Grid::make(2)->schema([
@@ -64,6 +66,7 @@ class ServiceResource extends Resource
             ->reorderable('sort')
             ->defaultSort('sort')
             ->columns([
+                ImageColumn::make('image')->label('الصورة')->disk('site')->height(40),
                 TextColumn::make('title_ar')->label('الخدمة')->searchable()->weight('bold'),
                 TextColumn::make('title_en')->label('English')->toggleable(),
                 IconColumn::make('featured')->label('أساسية')->boolean(),

@@ -9,10 +9,16 @@
 <section class="section">
     <div class="container detail">
         <article class="detail__main">
-            <div class="detail__banner" data-reveal="zoom">
-                <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-                <x-mh-icon :name="$service['icon']" :size="110"/>
-            </div>
+            @if (! empty($service['image']))
+                <div class="detail__banner detail__banner--img" data-reveal="zoom">
+                    <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}">
+                </div>
+            @else
+                <div class="detail__banner" data-reveal="zoom">
+                    <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                    <x-mh-icon :name="$service['icon']" :size="110"/>
+                </div>
+            @endif
             <h2 data-reveal>{{ __(':service في :cities', ['service' => $service['title'], 'cities' => cities_list()]) }}</h2>
             <p data-reveal>{{ $service['body'] }}</p>
 
@@ -22,6 +28,12 @@
                     <li data-reveal data-delay="{{ $loop->index * 70 }}"><x-mh-icon name="check" :size="18"/> {{ $f }}</li>
                 @endforeach
             </ul>
+
+            @php($serviceGallery = array_values(array_filter(config('site.gallery', []), fn ($g) => $g['service'] === $slug)))
+            @if ($serviceGallery)
+                <h3 data-reveal>{{ __('من أعمالنا في هذه الخدمة') }}</h3>
+                @include('partials.gallery-grid', ['items' => $serviceGallery, 'filters' => false])
+            @endif
 
             <h3 data-reveal>{{ __('نقدم الخدمة في') }}</h3>
             <div class="chips" data-reveal>

@@ -218,6 +218,56 @@
         });
     });
 
+    /* ---------- Gallery: filter by service + lightbox ---------- */
+    document.querySelectorAll('[data-gallery]').forEach(function (gallery) {
+        gallery.querySelectorAll('[data-filter]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var f = btn.getAttribute('data-filter');
+                gallery.querySelectorAll('[data-filter]').forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+                gallery.querySelectorAll('.gallery__item').forEach(function (item) {
+                    item.classList.toggle('is-hidden', f !== '*' && item.getAttribute('data-service') !== f);
+                });
+            });
+        });
+    });
+
+    var lightbox = null;
+    function openLightbox(full, before, caption) {
+        if (!lightbox) {
+            lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.setAttribute('role', 'dialog');
+            lightbox.setAttribute('aria-modal', 'true');
+            lightbox.innerHTML = '<button type="button" class="lightbox__close" aria-label="' + (doc.lang === 'en' ? 'Close' : 'إغلاق') + '">&times;</button><div><div class="lightbox__imgs"></div><p class="lightbox__caption"></p></div>';
+            document.body.appendChild(lightbox);
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox || e.target.classList.contains('lightbox__close')) closeLightbox();
+            });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+        }
+        var en = doc.lang === 'en';
+        var imgs = lightbox.querySelector('.lightbox__imgs');
+        imgs.innerHTML = '';
+        function add(src, label) {
+            var fig = document.createElement('figure');
+            var img = document.createElement('img');
+            img.src = src; img.alt = label || caption || '';
+            fig.appendChild(img);
+            if (label) { var c = document.createElement('figcaption'); c.textContent = label; fig.appendChild(c); }
+            imgs.appendChild(fig);
+        }
+        if (before) { add(before, en ? 'Before' : 'قبل'); add(full, en ? 'After' : 'بعد'); } else { add(full, ''); }
+        lightbox.querySelector('.lightbox__caption').textContent = caption || '';
+        lightbox.classList.add('is-open');
+        lightbox.querySelector('.lightbox__close').focus();
+    }
+    function closeLightbox() { if (lightbox) lightbox.classList.remove('is-open'); }
+    document.querySelectorAll('.gallery__open').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            openLightbox(btn.getAttribute('data-full'), btn.getAttribute('data-before'), btn.getAttribute('data-caption'));
+        });
+    });
+
     /* ---------- Bring validation errors into view ---------- */
     var err = document.querySelector('.field__error');
     if (err) {

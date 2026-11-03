@@ -44,8 +44,12 @@ class Fields
             ->directory("uploads/{$directory}")
             ->image()
             ->imageEditor()
-            ->maxSize(4096)
-            ->helperText('صورة JPG أو PNG أو WEBP، بحد أقصى 4 ميجا');
+            // big phone photos are shrunk in the browser before upload
+            ->imageResizeMode('contain')
+            ->imageResizeTargetWidth('1920')
+            ->imageResizeTargetHeight('1920')
+            ->maxSize(10240)
+            ->helperText('صورة JPG أو PNG أو WEBP، بحد أقصى 10 ميجا');
     }
 
     public static function slug(): TextInput

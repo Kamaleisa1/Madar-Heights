@@ -44,6 +44,7 @@ class PostResource extends Resource
                 Fields::text('title', 'العنوان', true),
                 Fields::textarea('excerpt', 'ملخص قصير', false, 2),
                 Fields::textarea('body', 'نص المقالة', true, 12, 'افصل بين كل فقرة والتانية بسطر فاضي'),
+                Fields::image('image', 'صورة المقالة (اختياري)', 'posts'),
             ]),
             Section::make('الإعدادات')->schema([
                 Grid::make(2)->schema([

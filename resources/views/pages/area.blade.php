@@ -4,7 +4,7 @@
 @section('description', __('مدار هايتس: غسيل السجاد والكنب وتنظيف وغسيل مكيفات وخزانات ومكافحة حشرات في :city.', ['city' => $city['name']]).' '.$city['intro'])
 
 @section('content')
-@include('partials.page-hero', ['title' => __('شركة تنظيف في :city', ['city' => $city['name']]), 'text' => $city['intro']])
+@include('partials.page-hero', ['title' => __('شركة تنظيف في :city', ['city' => $city['name']]), 'text' => $city['intro'], 'bg' => $city['image'] ?? null])
 
 <section class="section">
     <div class="container">

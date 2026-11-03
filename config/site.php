@@ -25,6 +25,13 @@ return [
 
     'notify_emails' => [],
     'about_photo' => 'assets/img/about-photo.jpg',
+    // صور اختيارية بتترفع من لوحة التحكم
+    'hero_image' => null,
+    'page_hero_image' => null,
+    'logo_light' => null,
+    'logo_dark' => null,
+    'favicon' => null,
+    'gallery' => [],
     'hero_words' => ['غسيل الكنب والمجالس', 'تنظيف السجاد والستائر', 'غسيل المكيفات', 'تنظيف الشقق والفلل', 'مكافحة الحشرات'],
 
     // بيانات الشركة الرسمية (بتظهر في كل الصفحات)

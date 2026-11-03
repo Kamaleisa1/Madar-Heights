@@ -16,9 +16,14 @@
     <meta property="og:title" content="@yield('title', config('site.name').' '.config('site.tagline'))">
     <meta property="og:description" content="@yield('description', config('site.description'))">
     <meta property="og:url" content="{{ url()->current() }}">
-    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    @if (config('site.favicon'))
+        <link rel="icon" href="{{ asset(config('site.favicon')) }}">
+        <link rel="apple-touch-icon" href="{{ asset(config('site.favicon')) }}">
+    @else
+        <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+    @endif
     <meta property="og:image" content="{{ asset('assets/img/icon-512.png') }}">
 
     {{-- Apply the saved theme before paint to avoid a flash --}}
@@ -46,7 +51,7 @@
         'description' => config('site.description'),
         'url' => lroute('home'),
         'telephone' => config('site.phone'),
-        'logo' => asset('assets/img/logo.png'),
+        'logo' => asset(config('site.logo_light') ?: 'assets/img/logo.png'),
         'areaServed' => array_values(array_map(fn ($c) => $c['name'], config('site.cities'))),
         'sameAs' => array_values(array_filter(config('site.social'), fn ($u) => $u !== '#')),
     ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}

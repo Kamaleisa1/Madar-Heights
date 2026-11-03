@@ -80,7 +80,21 @@ class Settings extends Page
                     Fields::text('tagline', 'الشعار تحت الاسم'),
                     Fields::textarea('description', 'وصف الموقع (لمحركات البحث)', false, 3),
                     Fields::tags('hero_words', 'الكلمات المتحركة في أول الصفحة'),
-                    Fields::image('about_photo', 'صورة قسم "من نحن"', 'about'),
+                ]),
+
+                Tab::make('الصور واللوجو')->icon(Heroicon::OutlinedPhoto)->schema([
+                    Grid::make(2)->schema([
+                        Fields::image('hero_image', 'صورة أول الصفحة الرئيسية (اختياري، بدل الدواير واللوجو)', 'hero'),
+                        Fields::image('about_photo', 'صورة قسم "من نحن"', 'about'),
+                        Fields::image('page_hero_image', 'خلفية عناوين الصفحات الداخلية (اختياري)', 'hero'),
+                    ]),
+                    Section::make('اللوجو والأيقونة')->description('سيبهم فاضيين عشان يفضل اللوجو الحالي. يفضّل صورة PNG بخلفية شفافة.')->schema([
+                        Grid::make(3)->schema([
+                            Fields::image('logo_light', 'اللوجو على الخلفيات الفاتحة', 'logo'),
+                            Fields::image('logo_dark', 'اللوجو على الخلفيات الغامقة', 'logo'),
+                            Fields::image('favicon', 'أيقونة تاب المتصفح (مربعة)', 'logo'),
+                        ]),
+                    ]),
                 ]),
 
                 Tab::make('سيكشن الخصم')->icon(Heroicon::OutlinedTag)->schema([

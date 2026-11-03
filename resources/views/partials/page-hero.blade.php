@@ -1,4 +1,5 @@
-<section class="page-hero">
+@php($heroBg = $bg ?? config('site.page_hero_image'))
+<section @class(['page-hero', 'page-hero--img' => $heroBg]) @if ($heroBg) style="--hero-bg: url('{{ asset($heroBg) }}')" @endif>
     <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="container page-hero__inner">
         <nav class="crumbs" aria-label="{{ __('مسار الصفحة') }}">

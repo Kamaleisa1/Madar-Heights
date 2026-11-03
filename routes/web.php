@@ -17,6 +17,7 @@ foreach (['ar' => '', 'en' => 'en'] as $locale => $prefix) {
             Route::get('/services/{slug}', [SiteController::class, 'service'])->name('service');
             Route::get('/areas/{slug}', [SiteController::class, 'area'])->name('area');
             Route::get('/about', [SiteController::class, 'about'])->name('about');
+            Route::get('/gallery', [SiteController::class, 'gallery'])->name('gallery');
             Route::get('/blog', [SiteController::class, 'blog'])->name('blog');
             Route::get('/blog/{slug}', [SiteController::class, 'post'])->name('post');
             Route::get('/contact', [SiteController::class, 'contact'])->name('contact');

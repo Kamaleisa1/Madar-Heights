@@ -4,6 +4,7 @@ namespace App\Support;
 
 use App\Models\City;
 use App\Models\Faq;
+use App\Models\GalleryItem;
 use App\Models\Post;
 use App\Models\Service;
 use App\Models\Setting;
@@ -69,6 +70,11 @@ class SiteContent
                 ],
                 'notify_emails' => array_values(array_filter($s['notify_emails'] ?? [])),
                 'about_photo' => $s['about_photo'] ?? 'assets/img/about-photo.jpg',
+                'hero_image' => $s['hero_image'] ?? null,
+                'page_hero_image' => $s['page_hero_image'] ?? null,
+                'logo_light' => $s['logo_light'] ?? null,
+                'logo_dark' => $s['logo_dark'] ?? null,
+                'favicon' => $s['favicon'] ?? null,
                 'hero_words' => $pick($s['hero_words_ar'] ?? [], $s['hero_words_en'] ?? []),
                 'stats' => array_map(fn ($r) => [
                     'value' => (int) ($r['value'] ?? 0),
@@ -94,7 +100,7 @@ class SiteContent
                     'badge' => $pick($s['offer_badge_ar'] ?? '', $s['offer_badge_en'] ?? ''),
                 ],
             ];
-            $out = array_filter($out, fn ($v) => $v !== null);
+            $out = array_filter($out, fn ($v, $k) => $v !== null || in_array($k, ['hero_image', 'page_hero_image', 'logo_light', 'logo_dark', 'favicon'], true), ARRAY_FILTER_USE_BOTH);
         }
 
         $services = Service::where('is_visible', true)->orderBy('sort')->orderBy('id')->get();
@@ -107,6 +113,7 @@ class SiteContent
                 'short' => $pick($x->short_ar, $x->short_en),
                 'body' => $pick($x->body_ar, $x->body_en),
                 'features' => array_values(array_filter($pick($x->features_ar ?? [], $x->features_en ?? []))),
+                'image' => $x->image,
             ]])->all();
         }
 
@@ -116,6 +123,7 @@ class SiteContent
                 'name' => $pick($x->name_ar, $x->name_en),
                 'intro' => $pick($x->intro_ar, $x->intro_en),
                 'districts' => array_values(array_filter($pick($x->districts_ar ?? [], $x->districts_en ?? []))),
+                'image' => $x->image,
             ]])->all();
         }
 
@@ -143,9 +151,23 @@ class SiteContent
                 'title' => $pick($x->title_ar, $x->title_en),
                 'date' => $x->published_at->format('Y-m-d'),
                 'service' => $x->service_slug,
+                'image' => $x->image,
                 'excerpt' => $pick($x->excerpt_ar, $x->excerpt_en),
                 'body' => array_values(array_filter(array_map('trim', preg_split("/\R\s*\R/u", (string) $pick($x->body_ar, $x->body_en))))),
             ]])->all();
+        }
+
+        // Gallery is read separately so a site updated before its database still works
+        try {
+            $out['gallery'] = GalleryItem::where('is_visible', true)->orderBy('sort')->orderBy('id')->get()
+                ->map(fn (GalleryItem $x) => [
+                    'image' => $x->image,
+                    'before' => $x->before_image,
+                    'service' => $x->service_slug,
+                    'caption' => $pick($x->caption_ar, $x->caption_en),
+                ])->all();
+        } catch (Throwable) {
+            // table not created yet
         }
 
         return $out;

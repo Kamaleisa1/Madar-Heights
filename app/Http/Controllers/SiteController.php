@@ -36,6 +36,11 @@ class SiteController extends Controller
         return view('pages.about');
     }
 
+    public function gallery(): View
+    {
+        return view('pages.gallery');
+    }
+
     public function blog(): View
     {
         return view('pages.blog');
@@ -55,7 +60,7 @@ class SiteController extends Controller
 
     public function sitemap(): Response
     {
-        $names = ['home' => [], 'services' => [], 'about' => [], 'blog' => [], 'contact' => []];
+        $names = ['home' => [], 'services' => [], 'about' => [], 'gallery' => [], 'blog' => [], 'contact' => []];
         $urls = [];
         foreach (['', 'en.'] as $prefix) {
             foreach ($names as $name => $params) {

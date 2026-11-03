@@ -41,6 +41,7 @@ class CityResource extends Resource
                 Fields::text('name', 'اسم المدينة', true),
                 Fields::textarea('intro', 'نبذة عن الخدمة في المدينة', false, 3),
                 Fields::tags('districts', 'الأحياء'),
+                Fields::image('image', 'صورة المدينة (اختياري، بتظهر في كارت المدينة وأعلى صفحتها)', 'cities'),
                 Grid::make(2)->schema([
                     Fields::slug(),
                     Toggle::make('is_visible')->label('ظاهرة في الموقع')->default(true)->inline(false),

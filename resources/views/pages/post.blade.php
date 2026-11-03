@@ -9,6 +9,9 @@
 <section class="section">
     <div class="container detail">
         <article class="detail__main prose">
+            @if (! empty($post['image']))
+                <div class="detail__banner detail__banner--img" data-reveal="zoom"><img src="{{ asset($post['image']) }}" alt="{{ $post['title'] }}"></div>
+            @endif
             <time datetime="{{ $post['date'] }}" class="muted"><x-mh-icon name="calendar" :size="15"/> {{ \Illuminate\Support\Carbon::parse($post['date'])->locale(app()->getLocale())->translatedFormat('j F Y') }}</time>
             @foreach ($post['body'] as $para)
                 <p data-reveal>{{ $para }}</p>

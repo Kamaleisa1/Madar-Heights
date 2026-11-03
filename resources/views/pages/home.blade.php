@@ -71,7 +71,10 @@
             </div>
         </div>
 
-        <div class="hero__visual" data-reveal="zoom" data-delay="200">
+        <div @class(['hero__visual', 'hero__visual--photo' => config('site.hero_image')]) data-reveal="zoom" data-delay="200">
+            @if (config('site.hero_image'))
+                <div class="hero__photo"><img src="{{ asset(config('site.hero_image')) }}" alt="{{ config('site.name') }}" fetchpriority="high"></div>
+            @else
             <div class="orbit">
                 <div class="orbit__ring orbit__ring--1"><span class="orbit__sat"><x-mh-icon name="sofa" :size="22"/></span></div>
                 <div class="orbit__ring orbit__ring--2"><span class="orbit__sat"><x-mh-icon name="ac" :size="22"/></span></div>
@@ -80,6 +83,7 @@
                     @include('partials.logo', ['alt' => config('site.name'), 'eager' => true])
                 </div>
             </div>
+            @endif
             <div class="float-card float-card--1">
                 <span class="float-card__ico"><x-mh-icon name="sofa" :size="22"/></span>
                 <span><strong>{{ __('غسيل الكنب والمجالس') }}</strong><small>{{ __('غسيل وتعقيم وتعطير') }}</small></span>
@@ -133,6 +137,22 @@
 {{-- ============ OFFER ============ --}}
 @include('partials.offer')
 
+{{-- ============ GALLERY ============ --}}
+@if (config('site.gallery'))
+<section class="section gallery-sec" id="gallery">
+    <div class="container">
+        @include('partials.section-head', [
+            'eyebrow' => __('من أعمالنا'),
+            'title' => __('صور حقيقية من <span class="grad">شغلنا</span>'),
+        ])
+        @include('partials.gallery-grid', ['items' => array_slice(config('site.gallery'), 0, 8), 'filters' => true])
+        @if (count(config('site.gallery')) > 8)
+            <div class="center mt"><a href="{{ lroute('gallery') }}" class="btn btn--primary">{{ __('عرض كل الأعمال') }}</a></div>
+        @endif
+    </div>
+</section>
+@endif
+
 {{-- ============ WHY US ============ --}}
 <section class="section why">
     <div class="container">
@@ -182,7 +202,7 @@
         ])
         <div class="areas__grid">
             @foreach (config('site.cities') as $slug => $c)
-                <a href="{{ lroute('area', $slug) }}" class="area-card" data-reveal="zoom" data-delay="{{ $loop->index * 90 }}">
+                <a href="{{ lroute('area', $slug) }}" @class(['area-card', 'area-card--img' => ! empty($c['image'])]) @if (! empty($c['image'])) style="--city-bg: url('{{ asset($c['image']) }}')" @endif data-reveal="zoom" data-delay="{{ $loop->index * 90 }}">
                     <span class="area-card__pin"><x-mh-icon name="map" :size="26"/></span>
                     <strong>{{ $c['name'] }}</strong>
                     <small>{{ __(':count+ أحياء ومناطق', ['count' => count($c['districts'])]) }}</small>

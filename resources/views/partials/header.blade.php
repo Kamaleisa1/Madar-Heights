@@ -2,7 +2,7 @@
 <div class="topbar">
     <div class="container topbar__inner">
         <div class="topbar__info">
-            <a href="{{ lroute('home') }}" class="topbar__logo"><img src="{{ asset('assets/img/logo-dark.webp') }}" alt="{{ config('site.name_en') }}" width="36" height="29"></a>
+            <a href="{{ lroute('home') }}" class="topbar__logo"><img src="{{ asset(config('site.logo_dark') ?: config('site.logo_light') ?: 'assets/img/logo-dark.webp') }}" alt="{{ config('site.name_en') }}" width="36" height="29"></a>
             <span class="topbar__sep"></span>
             <a href="tel:{{ config('site.phone') }}"><x-mh-icon name="phone" :size="15"/> <span dir="ltr">{{ config('site.phone_display') }}</span></a>
             <span class="topbar__sep"></span>
@@ -41,6 +41,9 @@
                         @endforeach
                     </div>
                 </li>
+                @if (config('site.gallery'))
+                    <li><a href="{{ lroute('gallery') }}" @class(['is-active' => route_is('gallery')])>{{ __('أعمالنا') }}</a></li>
+                @endif
                 <li><a href="{{ lroute('blog') }}" @class(['is-active' => route_is('blog', 'post')])>{{ __('المدونة') }}</a></li>
                 <li><a href="{{ lroute('contact') }}" @class(['is-active' => route_is('contact')])>{{ __('اتصل بنا') }}</a></li>
             </ul>

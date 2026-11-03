@@ -35,7 +35,8 @@ class AdminTest extends TestCase
         $this->actingAs(User::factory()->create());
 
         $pages = ['/admin', '/admin/settings', '/admin/services', '/admin/services/create', '/admin/cities',
-            '/admin/testimonials', '/admin/faqs', '/admin/posts', '/admin/bookings', '/admin/ui-texts', '/admin/users'];
+            '/admin/testimonials', '/admin/faqs', '/admin/posts', '/admin/bookings', '/admin/ui-texts', '/admin/users',
+            '/admin/gallery-items', '/admin/gallery-items/create'];
         foreach ($pages as $url) {
             $this->get($url)->assertOk();
         }
